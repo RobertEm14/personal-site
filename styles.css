@@ -1,0 +1,517 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  border-color: black;
+}
+
+
+body {
+  
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(90deg, black 14%, #691155 66%, #5343ab4a 158%);
+  width: 100%;
+  height: 100vh;
+}
+
+/* Základné štýlovanie pre #nav-bg */
+#nav-bg {
+  width: 5%;
+  /* Upresnenie šírky navigačnej lišty */
+  height: 100vh;
+  /* Výška nastavená na celú obrazovku */
+  position: fixed;
+  /* Pevné umiestnenie */
+  top: 0;
+  left: 0;
+  /* Začiatok zhora */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(196, 19, 19, 0.952);
+  /* Farba pozadia */
+  box-shadow: 0px -1px 24px #0e023d;
+  animation: slideDown 3s ease;
+  /* Animácia sa spustí s oneskorením 0.5s */
+}
+
+
+
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mediálne pravidlo pre zrušenie animácie na malých obrazovkách */
+@media (max-width: 600px) {
+  #nav-bg {
+    animation: none;
+    /* Vypnutie animácie */
+  }
+}
+
+
+
+.nav-ul {
+
+  width: 5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-ul li {
+
+  list-style: none;
+  margin-top: 1.5rem;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+@keyframes slideAndBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  65% {
+    transform: translateX(-5px);
+
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.nav-ul li:hover img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Zmena farby pozadia položky menu */
+.nav-ul li:hover {
+  transition: background-color 0.3s ease;
+}
+
+/* Rotácia ikony */
+.nav-ul li:hover img {
+  transform: rotate(15deg);
+  transition: transform 0.3s ease;
+}
+
+.nav-ul li:hover img {
+  transform: scale(1.2) rotate(15deg);
+  transition: transform 0.5s ease;
+}
+
+.nav-ul img {
+  height: 4rem;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(226, 216, 216);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0px;
+  position: absolute;
+  z-index: 1;
+  left: 130%;
+  /* Posunúť doprava od ikony */
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav-ul li:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+.hamburger {
+  display: none;
+  /* Skryť hamburger na veľkých obrazovkách */
+  font-size: 30px;
+  /* Veľkosť hamburger ikony */
+  cursor: pointer;
+  color: #000;
+  /* Zabezpečte, že farba ikony je kontrastná voči pozadiu */
+  position: fixed;
+  /* Absolútna pozícia pre umiestnenie */
+  top: 20px;
+  /* Horná pozícia */
+  right: 20px;
+  /* Pravá pozícia */
+  z-index: 1000;
+  /* Z-index pre zabezpečenie, že ikona bude nad ostatnými prvkami */
+}
+
+/* Malé zariadenia (telefóny, do 600px) */
+@media (max-width: 600px) {
+  .hamburger {
+    z-index: 1100;
+    display: block;
+    /* Zobraziť hamburger na malých obrazovkách */
+  }
+
+  body {
+    background-image: linear-gradient(390deg, black 14%, #691155 49%, #5343ab4a 102%);
+    width: 100%;
+    height: 100vh;
+  }
+
+  .title-name {
+    font-size: 10px;
+  }
+
+  #nav-bg {
+    z-index: 1000;
+    position: fixed;
+    /* Umožňuje lište zostať na vrchu */
+    top: 0;
+    left: -200%;
+    /* Skryť lištu mimo obrazovky */
+    width: 100%;
+    /* Šírka vysúvanej lišty */
+    height: 150px;
+    /* Výška nastavená na celú obrazovku */
+    transition: left 0.3s;
+    /* Plynulé vysunutie a zasunutie */
+    background-color: rgba(59, 23, 105, 0.712);
+    /* Zabezpečte, že pozadie je vhodne farebné */
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .nav-ul {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+  }
+
+  .nav-ul li {
+    margin: 0.5rem;
+    /* Menšie okraje */
+    transform: translateX(0);
+    opacity: 1;
+    /* Ikony sú vždy viditeľné */
+  }
+
+  .nav-ul img {
+    height: 3rem;
+    /* Menšie ikony */
+  }
+
+  .logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-image: linear-gradient(168deg, #121312 -100%, rgba(139, 133, 184, 0.863) 137%);
+    box-shadow: 0px 23px 28px black ;
+    padding: 10px 0;
+}
+
+  .logo {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    width: 8rem;
+  }
+}
+
+
+  /* Tablety a malé desktopy (601px až 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    #nav-bg {
+      width: 20%;
+      /* Širšia navigácia */
+    }
+
+    .nav-ul li {
+      margin-top: 1rem;
+      /* Menšie okraje */
+    }
+
+    .nav-ul img {
+
+      height: 3.5rem;
+      /* Trochu väčšie ikony ako na telefóne */
+    }
+
+
+  }
+
+  #Domov {
+    padding-top: 100px;  /* Zmeniť podľa výšky vašej navigačnej lišty */
+    margin-top: -100px;  /* Toto musí byť rovnaké ako padding-top, ale so zápornou hodnotou */
+}
+
+
+  #title-container{
+    margin-top: 12%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4rem;
+  }
+
+  #inicials {
+    
+  }
+
+  .title-hi {
+    color: aliceblue;
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: slideFromLeft 1s ease forwards;
+    
+  }
+
+  @keyframes slideFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .title-name {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 1;
+    color: #6ED869;
+    font-size: 8rem;
+    animation: slideFromRight 1s ease forwards;
+    animation-delay: 0.5s; /* Mierne oneskorenie aby sa texty neprekrývali */
+    opacity: 0;
+  }
+
+  @keyframes slideFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .proffesions {
+    color: #B0B9BD;
+    position: relative;
+    bottom: 1.8rem;
+    display: flex;
+    column-gap: 1rem;
+    font-size: 2rem;
+  }
+
+  .title-prof, .title-prof-second {
+  position: relative;
+  padding-left: 1rem; /* Adds space for the vertical line */
+  animation: scaleup 2s ease-in;
+}
+
+
+
+.title-prof::before, .title-prof-second::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 3px; /* Width of the vertical line */
+  height: 35px; /* Height of the vertical line */
+  background-color: blue; /* Default color for both lines */
+}
+
+.title-prof::before {
+  background-color: #FECC00; /* Specific color for 'web designer' */
+}
+
+.title-prof-second::before {
+  background-color: rgb(118, 131, 248); /* Specific color for 'grafik' */
+}
+
+
+
+
+
+.btn {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #EEE;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #0a011a;
+  box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #d3d8d188;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  transition: all 0.4s ease-in-out;
+  border-radius: 35%;
+  display: block;
+  z-index: 0;
+}
+
+.btn:hover::before, .btn:focus::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}
+
+.left-btn, .right-btn {
+  margin-right: 0.8rem;
+}
+
+.right-btn { padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #EEE;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #0a011a;
+  box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #51eb0a88;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover, .btn:focus {
+  color: #FFF;
+  box-shadow: inset 2px 2px 4px #0f0f0f, inset -2px -2px 4px #333;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  color: #CCC;
+  box-shadow: inset 1px 1px 2px #0f0f0f, inset -1px -1px 2px #333;
+  transform: scale(0.95);
+}
+
+
+  
+
+  .logo {
+    height: 30rem;
+    display: flex;
+    animation: scaleup 2s ease-in;
+    
+  }
+  
+
+
+ 
+
+  #Profil {
+    width: 68%;
+    height: 100vh;
+    padding-top: 200px;  /* Zmeniť podľa výšky vašej navigačnej lišty */
+    margin: 200px auto;
+  }
+
+  #motto-container {
+    position: relative;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    max-width: 50%;
+    float: left;
+    text-align: justify;
+
+  }
+
+  .motto {
+    color: #6ED869;
+    font-size: 3rem;
+
+  }
+
+  .motto-text {
+    color: white;
+    font-size: 1.5rem;
+
+  }
+
+  .profil-img img {
+    height: 80rem;
+    float: right;
+    position: relative;
+    bottom: 35rem;
+    left: 14rem;
+  
+  }
+
+  #text-blocks-bg {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: black;
+  }
+
+  .text-blocks {
+    text-align: justify;
+    font-size: 1.4rem;
+    column-gap: 2rem;
+    display: flex;
+    color: white;
+  }
+
