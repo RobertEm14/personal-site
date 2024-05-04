@@ -600,11 +600,14 @@ body {
   }
 
   #motto-container {
-    
+  
     padding: 0;
     display: inline;
     width: 100%;
     height: auto;
+    position: relative;
+    
+    top: 80px;
 
   }
 
@@ -628,15 +631,16 @@ body {
     width: 100%;
     height: fit-content;
     
-    
+    position: absolute;
+    top: 110%;
     left: 0;
   }
 
   #text-blocks-bg {
     width: 80%;
-    height: auto;
+    height: 100%;
     position: absolute;
-    top: 120%;
+    top: 180%;
     
 
     
