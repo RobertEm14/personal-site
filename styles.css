@@ -347,7 +347,7 @@ body {
 #Profil {
 
   width: 68%;
-  height: 100vh;
+  height: auto;
   padding-top: 200px;
   margin: 200px auto;
 }
@@ -408,12 +408,12 @@ body {
   border-left: 2px solid rgb(72, 44, 197);
   border-top: 2px solid rgb(88, 39, 179);
   padding: 15px;
-  position: relative;
-  bottom: 140%;
+  position: absolute;
+  bottom: -90%;
   justify-content: center;
   align-items: center;
   display: flex;
-  width: 100%;
+  width: 68%;
   height: auto;
   background-color: rgba(0, 0, 0, 0.452);
   border-radius: 10px;
@@ -466,7 +466,7 @@ body {
 
   body {
 
-    padding: 10%;
+    
     background-image: linear-gradient(150deg, black 14%, #691155 49%, #5343ab4a 102%);
 
     background-attachment: fixed;
@@ -497,10 +497,14 @@ body {
 
 
   #Domov {
+    width: 80%;
     margin: 35% auto;
   }
 
-
+  #title-container {
+    width: 100%;
+    
+  }
 
   .title-name {
     float: left;
@@ -587,51 +591,56 @@ body {
 
 
   #Profil {
-
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    margin-top: 50%;
+    width: 80%
+    
+    
+    
+   
   }
 
   #motto-container {
-
-    position: relative;
-    top: 1%;
-    row-gap: 2rem;
-    float: left;
-    margin: 0 auto;
-    text-align: center;
+    
+    padding: 0;
+    display: inline;
+    width: 100%;
+    height: auto;
 
   }
 
   .motto {
+    margin-bottom: 10%;
+    text-align: center;
     width: 100%;
-    display: inline;
-    font-size: 2rem;
+    font-size: 1.5rem;
+
   }
 
   .motto-text {
-    text-align: center;
+    padding: 0;
     width: 100%;
+    font-size: 1rem;
+    text-align: center;
+
   }
 
-
-
-  .profil-img img {
-    position: absolute;
-    left: 0%;
-    top: 100%;
-    height: 28rem;
-
-
-
+  .profil-img img{
+    width: 100%;
+    height: fit-content;
+    
+    
+    left: 0;
   }
 
   #text-blocks-bg {
-    margin: 10% auto;
-    max-width: 90%;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 100%;
+    
+
+    
+
 
 
   }
@@ -639,6 +648,8 @@ body {
   .text-blocks {
     display: flex;
     flex-direction: column;
-  }
 
-}
+  }
+  
+
+ 
