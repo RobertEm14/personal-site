@@ -452,48 +452,178 @@ body {
 
 
 
-/* Specific adjustments for smaller and specific device sizes */
-@media (max-width: 992px) {
-  /* Adjusting layout for devices like Huawei Nova 5T in portrait and similar sizes */
-  body, html, #nav-bg, .nav-ul, #title-container, #Domov, #Profil, #text-blocks-bg {
-      text-align: left;
-      padding-left: 10px;
-      align-items: flex-start; /* Maintain left alignment */
+/* Malé zariadenia (telefóny, do 600px)*/
+@media (max-width: 768px) {
+  #nav-bg {
+    animation: none;
   }
 
-  #nav-bg, .nav-ul {
-      width: 100%; /* Adjust nav to be full width */
-      flex-direction: row;
-      justify-content: space-around;
+  .hamburger {
+    z-index: 1100;
+    display: block;
+
   }
 
-  .logo, .profil-img img {
-      width: 50%; /* Adjust size for medium screens */
+  body {
+
+    background-image: linear-gradient(150deg, black 14%, #691155 49%, #5343ab4a 102%);
+
+    background-attachment: fixed;
+
+    background-repeat: no-repeat;
+
+    animation: gradientSlide 15s ease-in-out infinite, fadeEffect 5s ease-in-out infinite;
+
+    min-height: 100vh;
+    width: 100%;
+    object-fit: cover;
   }
 
-  #title-container, #motto-container, .text-blocks {
-      flex-direction: column;
+  @keyframes gradientSlide {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+  #Domov {
+    margin: 35% auto;
+  }
+
+
+
+  .title-name {
+    font-size: 4rem;
+  }
+
+  #nav-bg {
+    z-index: 1000;
+    position: fixed;
+
+    top: 0;
+    left: -200%;
+
+    width: 100%;
+
+    height: 150px;
+
+    transition: left 0.3s;
+
+    background-color: rgba(59, 23, 105, 0.712);
+
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .nav-ul {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+  }
+
+  .nav-ul li {
+    margin: 0.5rem;
+
+    transform: translateX(0);
+    opacity: 1;
+
+  }
+
+  .nav-ul img {
+    height: 3rem;
+
+  }
+
+  .proffesions {
+    bottom: 1rem;
+  }
+
+  .logo-container {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    padding: 10px 0;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    width: 10rem;
+  }
+
+  /*  PROFIL */
+
+
+  #Profil {
+
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #motto-container {
+
+    position: relative;
+    top: 1%;
+    row-gap: 2rem;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+
+  .motto {
+    width: 100%;
+    display: inline;
+    font-size: 2rem;
+  }
+
+  .motto-text {
+    text-align: center;
+    width: 100%;
+  }
+
+
+
+  .profil-img img {
+    position: absolute;
+    left: 14%;
+    top: 75%;
+    height: 33rem;
+
+
+
+  }
+
+  #text-blocks-bg {
+    margin: 10% auto;
+    max-width: 90%;
+
+
   }
 
   .text-blocks {
-      flex-direction: column;
-      align-items: flex-start;
+    display: flex;
+    flex-direction: column;
   }
 
-  .block1, .block2, .block3 {
-      padding: 10px;
-      margin: 10px 0; /* Add vertical space between blocks */
-  }
-
-  .btn, .right-btn {
-      width: auto; /* Adjust button width */
-      margin: 10px; /* Add margin around buttons */
-  }
-}
-
-@media (max-width: 768px) {
-  /* More specific adjustments for smaller screens */
-  .logo, .profil-img img {
-      width: 70%; /* Smaller logo and portrait size */
-  }
 }
