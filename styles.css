@@ -629,7 +629,7 @@ body {
 
   .profil-img img{
     width: 100%;
-    height: fit-content;
+    height: 100%;
     
     position: absolute;
     top: 110%;
@@ -638,7 +638,7 @@ body {
 
   #text-blocks-bg {
     width: 80%;
-    height: 100%;
+    height: auto;
     position: absolute;
     top: 180%;
     
@@ -651,7 +651,7 @@ body {
 
   .text-blocks {
     width: 90%;
-    height: 100%;
+    height: auto;
     position:absolute;
 
     display: flex;
