@@ -453,7 +453,7 @@ body {
 
 
 /* Malé zariadenia (telefóny, do 600px)*/
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   #nav-bg {
     animation: none;
   }
@@ -466,6 +466,7 @@ body {
 
   body {
 
+    padding: 10%;
     background-image: linear-gradient(150deg, black 14%, #691155 49%, #5343ab4a 102%);
 
     background-attachment: fixed;
@@ -502,7 +503,23 @@ body {
 
 
   .title-name {
-    font-size: 4rem;
+    float: left;
+    font-size: 3rem;
+  }
+
+  .title-hi {
+    font-size: 2rem;
+  }
+
+  .proffesions {
+    float: left;
+    font-size: 1rem;
+    bottom: 0rem;
+  }
+
+  .btn {
+    font-size: 0.5rem;
+    bottom: -1rem;
   }
 
   #nav-bg {
@@ -544,9 +561,7 @@ body {
 
   }
 
-  .proffesions {
-    bottom: 1rem;
-  }
+
 
   .logo-container {
     position: absolute;
@@ -606,9 +621,9 @@ body {
 
   .profil-img img {
     position: absolute;
-    left: 14%;
+    left: 0%;
     top: 75%;
-    height: 33rem;
+    height: 28rem;
 
 
 
