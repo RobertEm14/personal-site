@@ -633,10 +633,10 @@ body {
   }
 
   #text-blocks-bg {
-    width: 100%;
+    width: 80%;
     height: auto;
-    position: relative;
-    top: 100%;
+    position: absolute;
+    top: 120%;
     
 
     
@@ -646,9 +646,25 @@ body {
   }
 
   .text-blocks {
+    width: 90%;
+    height: 100%;
+    position:absolute;
+
     display: flex;
     flex-direction: column;
 
+  }
+
+  .text-blocks h3 {
+    font-size: 1.5rem;
+    margin-left: -10%;
+    margin-top: 5%;
+  }
+
+  .text-block {
+    margin-left: -10%;
+    margin-bottom: 10%;
+    font-size: 1rem;
   }
   
 
