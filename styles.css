@@ -463,6 +463,8 @@ body {
   }
 
   .hamburger {
+    position: fixed;
+    color: white;
     z-index: 1100;
     display: block;
 
@@ -596,7 +598,7 @@ body {
 
   #Profil {
     margin-top: 50%;
-    width: 80%
+    width: 90%
     
     
     
@@ -620,6 +622,7 @@ body {
     text-align: center;
     width: 100%;
     font-size: 1.5rem;
+    color: rgb(255, 255, 255);
 
   }
 
@@ -628,6 +631,7 @@ body {
     width: 100%;
     font-size: 1rem;
     text-align: center;
+    color: #6ED869;
 
   }
 
@@ -636,7 +640,7 @@ body {
     height: fit-content;
     
     position: absolute;
-    top: 120%;
+    top: 120px;
     left: 0;
   }
 
@@ -645,19 +649,33 @@ body {
   }
   
   .text-blocks-hidden {
+    backdrop-filter: blur(200px);
+    position: static;
+    border: 1px solid rgba(23, 7, 82, 0.856);
+    width: 100%;
+    background-color: #140b30b6;
+    padding: 25px;
     position: relative;
-    top: 450px;
+    top: 600px;
     margin-top: 3%;
     display: block;
   }
 
   .text-block {
-    margin: 10% 0;
+    color: #6ED869;
+    
+    margin: 10% -10px;
     text-align: justify;
   }
 
   .block1.block2.block3 {
+    
     margin-bottom: 20%;
+  }
+
+  .block1 h3, .block2  h3, .block3  h3 {
+    margin-left: -10px;
+    color: rgb(16, 147, 170);
   }
 
 }
