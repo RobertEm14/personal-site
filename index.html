@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <script>
@@ -24,22 +27,52 @@
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector('.hamburger');
     const navBg = document.getElementById('nav-bg');
-    
+    const navLinks = document.querySelectorAll('.nav-ul li a');
+    const htmlBody = document.querySelector('html'); // Target the html element as well
+
     hamburger.addEventListener('click', function(event) {
-        event.stopPropagation();  // Prevent event bubbling
-        // Toggle navigation
-        navBg.style.left = navBg.style.left === "0px" ? "-150%" : "0px";
+        event.stopPropagation();
+        toggleMenu();
     });
 
-    if (window.innerWidth <= 1024) {
-        // Close menu by clicking outside the bar only on smaller screens
-        document.addEventListener('click', function(event) {
-            if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
-                navBg.style.left = "-100%";
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 600) {
+                closeMenu();
             }
         });
+    });
+
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 1024) {
+            if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
+                closeMenu();
+            }
+        }
+    });
+
+    function toggleMenu() {
+        if (navBg.style.left === "0px") {
+            closeMenu();
+        } else {
+            navBg.style.left = "0px";
+            htmlBody.style.overflow = "hidden"; // Disable scrolling
+        }
+    }
+
+    function closeMenu() {
+        navBg.style.left = "-150%";
+        htmlBody.style.overflow = "auto"; // Enable scrolling
     }
 });
+
+window.addEventListener('resize', function() {
+    const htmlBody = document.querySelector('html');
+    if (window.innerWidth > 600) {
+        htmlBody.style.overflow = "auto";
+    }
+});
+
 
 window.addEventListener('resize', function() {
     // Add or remove the outside click listener based on screen width
@@ -88,7 +121,7 @@ window.addEventListener('resize', function() {
 
     <section id="Profil">
         <div id="motto-container">
-            <h2 class="motto" data-aos="fade-down" data-aos-duration="1000">"web ktorý hovorí za vás"</h2>
+            <h2 class="motto" data-aos="fade-down" data-aos-duration="1500">"web ktorý hovorí za vás"</h2>
             <p class="motto-text" data-aos="zoom-in-up" data-aos-duration="1000">
                 Zdravím. Volám sa Róbert , váš partner pre web development a grafický dizajn. Moje nadšenie pre technológie a kreatívny dizajn mi pomáha vytvárať vizuálne príťažlivé a technicky rafinované webové riešenia. Zameriavam sa na pochopenie vašich potrieb a transformujem vaše idey do skutočnosti.
             </p>
