@@ -1,681 +1,161 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-
-body {
-
-
-  background-image: linear-gradient(90deg, black 14%, #691155 66%, #5343ab4a 158%);
-  background-attachment: fixed;
-  width: 100%;
-  height: auto;
-  animation: gradientSlide 1s ease-in-out infinite,
-}
-
-@keyframes gradientSlide {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Navigačne menu */
-
-#nav-bg {
-  width: 5%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgb(19, 1, 53);
-  box-shadow: 0px -1px 24px #0e023d;
-  animation: slideDown 3s ease;
-}
-
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nav-ul {
-
-  width: 5rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-ul li {
-
-  list-style: none;
-  margin-top: 1.5rem;
-  opacity: 0;
-  transform: translateX(-100px);
-}
-
-@keyframes slideAndBounce {
-  0% {
-    opacity: 0;
-    transform: translateX(-70px);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-
-  65% {
-    transform: translateX(-5px);
-
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-.nav-ul li:hover img {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-.nav-ul li:hover {
-  transition: background-color 0.3s ease;
-}
-
-.nav-ul li:hover img {
-  transform: rotate(15deg);
-  transition: transform 0.3s ease;
-}
-
-.nav-ul li:hover img {
-  transform: scale(1.2) rotate(15deg);
-  transition: transform 0.5s ease;
-}
-
-.nav-ul img {
-  height: 4rem;
-}
-
-.tooltip {
-  visibility: hidden;
-  width: 120px;
-  background-color: rgb(226, 216, 216);
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0px;
-  position: absolute;
-  z-index: 1;
-  left: 130%;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.nav-ul li:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.hamburger {
-  display: none;
-
-  font-size: 30px;
-
-  cursor: pointer;
-  color: #000;
-
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-#Domov {
-  padding-top: 100px;
-  margin-top: -100px;
-}
-
-
-#title-container {
-  margin-top: 12%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 4rem;
-}
-
-#inicials {}
-
-.title-hi {
-  color: aliceblue;
-  font-size: 3rem;
-  font-family: Arial, Helvetica, sans-serif;
-  animation: slideFromLeft 1s ease forwards;
-
-}
-
-@keyframes slideFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.title-name {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 1;
-  color: #6ED869;
-  font-size: 8rem;
-  animation: slideFromRight 1s ease forwards;
-  animation-delay: 0.5s;
-  opacity: 0;
-}
-
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.proffesions {
-  color: #B0B9BD;
-  position: relative;
-  bottom: 1.8rem;
-  display: flex;
-  column-gap: 1rem;
-  font-size: 2rem;
-}
-
-.title-prof,
-.title-prof-second {
-  position: relative;
-  padding-left: 1rem;
-  animation: scaleup 2s ease-in;
-}
-
-
-
-.title-prof::before,
-.title-prof-second::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 55%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 35px;
-  background-color: blue;
-}
-
-.title-prof::before {
-  background-color: #FECC00;
-}
-
-.title-prof-second::before {
-  background-color: rgb(118, 131, 248);
-}
-
-
-
-
-.btn {
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: #EEE;
-  border: none;
-  border-radius: 50px;
-  text-align: center;
-  cursor: pointer;
-  display: inline-block;
-  background-color: #0a011a;
-  box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #d3d8d188;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  transition: all 0.4s ease-in-out;
-  border-radius: 35%;
-  display: block;
-  z-index: 0;
-}
-
-.btn:hover::before,
-.btn:focus::before {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50px;
-}
-
-.left-btn,
-.right-btn {
-  margin-right: 0.8rem;
-}
-
-.right-btn {
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: #EEE;
-  border: none;
-  border-radius: 50px;
-  text-align: center;
-  cursor: pointer;
-  display: inline-block;
-  background-color: #0a011a;
-  box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #51eb0a88;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn:hover,
-.btn:focus {
-  color: #FFF;
-  box-shadow: inset 2px 2px 4px #0f0f0f, inset -2px -2px 4px #333;
-  transform: scale(1.05);
-}
-
-.btn:active {
-  color: #CCC;
-  box-shadow: inset 1px 1px 2px #0f0f0f, inset -1px -1px 2px #333;
-  transform: scale(0.95);
-}
-
-
-
-
-.logo {
-  height: 30rem;
-  display: flex;
-  animation: scaleup 2s ease-in;
-
-}
-
-
-/*   Sekcia Profil  */
-
-#Profil {
-
-  width: 68%;
-  height: auto;
-  padding-top: 200px;
-  margin: 200px auto;
-}
-
-#motto-container {
-  position: relative;
-  top: 10%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 2rem;
-  max-width: 50%;
-
-
-}
-
-.motto {
-  color: #6ED869;
-  font-size: 3rem;
-
-}
-
-.motto::before {
-  content: "";
-  position: relative;
-  padding-left: 3px;
-  margin-right: 1%;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: auto;
-  background-color: #6ED869;
-}
-
-.motto-text {
-  padding-left: 5%;
-  color: white;
-  font-size: 1.5rem;
-  text-align: justify;
-
-}
-
-.portret-container {
-  width: 100%;
-  height: auto;
-}
-
-.profil-img img {
-
-  height: 80rem;
-  float: right;
-  position: relative;
-  bottom: 35rem;
-  left: 14rem;
-
-}
-
-.text-blocks-hidden {
-  display: none;
-}
-
-#text-blocks-bg {
-  border-left: 2px solid rgb(72, 44, 197);
-  border-top: 2px solid rgb(88, 39, 179);
-  padding: 15px;
-  position: absolute;
-  bottom: -90%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  width: 68%;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.452);
-  border-radius: 10px;
-  box-shadow: inset 1px 5px 10px rgb(33, 1, 59), -5px -5px 5px rgba(15, 15, 15, 0.781);
-}
-
-.text-blocks {
-  text-align: justify;
-  font-size: 1.4rem;
-  column-gap: 3rem;
-  display: flex;
-  color: white;
-}
-
-.text-blocks h3 {
-  padding-bottom: 10%;
-  color: #eed460;
-}
-
-.block1,
-.block2,
-.block3 {
-  border-left: 3px solid yellow;
-  padding-left: 2rem;
-  position: relative;
-  /* Necessary for absolute positioning inside */
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Malé zariadenia (telefóny, do 600px)*/
-@media (max-width: 600px) {
-  #nav-bg {
-    animation: none;
-  }
-
-  .hamburger {
-    position: fixed;
-    color: white;
-    z-index: 1100;
-    display: block;
-
-  }
-
-  body {
-
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const icons = document.querySelectorAll('.nav-ul li');
+    const initialDelay = 1000; // Počiatočné oneskorenie v milisekundách
+    icons.forEach((icon, index) => {
+        setTimeout(() => {
+            icon.style.animation = `slideAndBounce 1s forwards`;
+        }, initialDelay + 100 * index); // Zvýšenie oneskorenia pre každú ikonu
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navBg = document.getElementById('nav-bg');
     
-    background-image: linear-gradient(150deg, black 14%, #691155 49%, #5343ab4a 102%);
+    hamburger.addEventListener('click', function(event) {
+        event.stopPropagation();  // Prevent event bubbling
+        // Toggle navigation
+        navBg.style.left = navBg.style.left === "0px" ? "-150%" : "0px";
+    });
 
-    background-attachment: fixed;
-
-    background-repeat: no-repeat;
-
-    animation: gradientSlide 15s ease-in-out infinite, fadeEffect 5s ease-in-out infinite;
-
-    min-height: 100vh;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  @keyframes gradientSlide {
-    0% {
-      background-position: 0% 50%;
+    if (window.innerWidth <= 1024) {
+        // Close menu by clicking outside the bar only on smaller screens
+        document.addEventListener('click', function(event) {
+            if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
+                navBg.style.left = "-100%";
+            }
+        });
     }
+});
 
-    50% {
-      background-position: 100% 50%;
+window.addEventListener('resize', function() {
+    // Add or remove the outside click listener based on screen width
+    if (window.innerWidth <= 600) {
+        document.addEventListener('click', handleOutsideClicks);
+    } else {
+        document.removeEventListener('click', handleOutsideClicks);
     }
+});
 
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-
-
-  #Domov {
-    width: 80%;
-    margin: 35% auto;
-  }
-
-  #title-container {
-    width: 100%;
+</script>
+<body>
+    <nav id="nav-bg">
+        <div class="hamburger">&#9776;</div>  <!-- Hamburger Icon -->
+        <ul class="nav-ul">
+            <li><a href="#Domov"><img src="./images/1.svg" alt=""><span class="tooltip">Domov</span></a></li>
+            <li><a href="#Profil"><img src="./images/4.svg" alt=""><span class="tooltip">Profil</span></a></li>
+            <li><a href="#Služby"><img src="./images/2.svg" alt=""><span class="tooltip">Služby</span></a></li>
+            <li><a href="#Projekty"><img src="./images/5.svg" alt=""><span class="tooltip">Projekty</span></a></li>
+            <li><a href="#Kontakt"><img src="./images/3.svg" alt=""><span class="tooltip">Kontakt</span></a></li>
+        </ul>
+    </nav>
     
-  }
+    <section id="Domov">
+        <div id="title-container">
+            <div id="inicials">
+            <h1 class="title-hi">Volám sa</h1>
+            <h2 class="title-name">Róbert Magdoško</h2>
+            <div class="proffesions" data-aos="fade-right" data-aos-delay="900" data-aos-offset="2" data-aos-duration="1000" >
+                <h2 class="title-prof">web designer</h2>
+                <h2 class="title-prof-second">grafik</h2>
+            </div>
+            <div class="buttons">
+                <a href="#Projekty" class="btn left-btn" data-aos="zoom-in-up" data-aos-delay="1500">Pokračujte</a>
+                <a href="#Kontakt" class="btn right-btn" data-aos="zoom-in-up" data-aos-delay="1800">Kontaktujte ma</a>
+            </div>
+            </div>
+                <div class="logo-container">
+                    <img class="logo" data-aos="flip-left"
+                                      data-aos-easing="ease-out-cubic"
+                                      data-aos-duration="3000"  src="./images/logo.svg" alt="">
+                                      
+                </div>
+        </div>        
+    </section>
 
-  .title-name {
-    float: left;
-    font-size: 3rem;
-  }
+    <section id="Profil">
+        <div id="motto-container">
+            <h2 class="motto" data-aos="fade-down">"web ktorý hovorí za vás"</h2>
+            <p class="motto-text" data-aos="flip-up">
+                Zdravím. Volám sa Róbert , váš partner pre web development a grafický dizajn. Moje nadšenie pre technológie a kreatívny dizajn mi pomáha vytvárať vizuálne príťažlivé a technicky rafinované webové riešenia. Zameriavam sa na pochopenie vašich potrieb a transformujem vaše idey do skutočnosti.
+            </p>
+        </div>
+        
+        <div class="profil-img" data-aos="zoom-in" data-aos-duration="1000">
+            <img src="./images/portret.png" alt="">
+        </div>
+        
 
-  .title-hi {
-    font-size: 2rem;
-  }
+        <div id="text-blocks-bg" data-aos="fade-down" data-aos-duration="1000">
+            <div class="text-blocks" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="1000">
+                <div class="block1" >
+                    <h3>Moje začiatky</h3>
+                    <p class="text-block">
+                        Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný základ pre moju kreativitu a zručnosti v práci s materiálmi.
+                    </p>
+                </div>
+                <div class="block2" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="1500">
+                    <h3>Profesionálna cesta</h3>
+                    <p class="text-block">
+                        Po škole som pracoval v rôznych priemyselných odvetviach. Hoci to bola cenná skúsenosť, postupne som pocítil potrebu zmeny. Chcel som viac času na osobný život a rodinu, čo ma nakoniec priviedlo k rozhodnutiu zmeniť svoju kariérnu dráhu.
+                    </p>
+                </div>
+                <div class="block3" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="1800">
+                    <h3>Nová vášen</h3>
+                    <p class="text-block">
+                        Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML, pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne pohltila a prináša mi veľkú radosť a uspokojenie.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-blocks-hidden" >
+            <div class="block1">
+                <h3 data-aos="fade-left" data-aos-duration="1000">Moje začiatky</h3>
+                <p class="text-block" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="0" data-aos-offset="100">
+                    Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný základ pre moju kreativitu a zručnosti v práci s materiálmi.
+                </p>
+            </div>
+            <div class="block2">
+                <h3 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">Profesionálna cesta</h3>
+                <p class="text-block" class="text-block" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="" data-aos-offset="100">
+                    Po škole som pracoval v rôznych priemyselných odvetviach. Hoci to bola cenná skúsenosť, postupne som pocítil potrebu zmeny. Chcel som viac času na osobný život a rodinu, čo ma nakoniec priviedlo k rozhodnutiu zmeniť svoju kariérnu dráhu.
+                </p>
+            </div>
+            <div class="block3">
+                <h3 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">Nová vášen</h3>
+                <p class="text-block" class="text-block" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="" data-aos-offset="100">
+                    Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML, pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne pohltila a prináša mi veľkú radosť a uspokojenie.
+                </p>
+            </div>
+        
 
-  .proffesions {
-    float: left;
-    font-size: 1rem;
-    bottom: 0rem;
-  }
-
-  .btn {
-    font-size: 0.5rem;
-    bottom: -1rem;
-  }
-
-  #nav-bg {
-    z-index: 1000;
-    position: fixed;
-
-    top: 0;
-    left: -200%;
-
-    width: 100%;
-
-    height: 150px;
-
-    transition: left 0.3s;
-
-    background-color: rgba(59, 23, 105, 0.712);
-
-    margin: 0;
-    box-shadow: none;
-  }
-
-  .nav-ul {
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-    justify-content: space-around;
-  }
-
-  .nav-ul li {
-    margin: 0.5rem;
-
-    transform: translateX(0);
-    opacity: 1;
-
-  }
-
-  .nav-ul img {
-    height: 3rem;
-
-  }
-
-
-
-  .logo-container {
-    position: absolute;
-    top: 5%;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 150px;
-    padding: 10px 0;
-  }
-
-  .logo {
-    position: static;
-    transform: none;
-    top: auto;
-    left: auto;
-    width: 10rem;
-  }
-
-  /*  PROFIL */
-
-
-  #Profil {
-    margin-top: 50%;
-    width: 90%
+    </section>
     
-    
-    
-   
-  }
 
-  #motto-container {
-  
-    padding: 0;
-    display: inline;
-    width: 100%;
-    height: auto;
-    position: relative;
-    
-    top: -2px;
 
-  }
-
-  .motto {
-    margin-bottom: 10%;
-    text-align: center;
-    width: 100%;
-    font-size: 1.5rem;
-    color: rgb(255, 255, 255);
-
-  }
-
-  .motto-text {
-    padding: 0;
-    width: 100%;
-    font-size: 1rem;
-    text-align: center;
-    color: #6ED869;
-
-  }
-
-  .profil-img img{
-    width: 100%;
-    height: fit-content;
-    
-    position: absolute;
-    top: 120px;
-    left: 0;
-  }
-
-  #text-blocks-bg {
-    display: none;
-  }
-  
-  .text-blocks-hidden {
-    backdrop-filter: blur(200px);
-    position: static;
-    border: 1px solid rgba(23, 7, 82, 0.856);
-    width: 100%;
-    background-color: #140b30b6;
-    padding: 25px;
-    position: relative;
-    top: 600px;
-    margin-top: 3%;
-    display: block;
-  }
-
-  .text-block {
-    color: #6ED869;
-    
-    margin: 10% -10px;
-    text-align: justify;
-  }
-
-  .block1.block2.block3 {
-    
-    margin-bottom: 20%;
-  }
-
-  .block1 h3, .block2  h3, .block3  h3 {
-    margin-left: -10px;
-    color: rgb(16, 147, 170);
-  }
-
-}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>   
+<script>
+    AOS.init();
+  </script> 
+</body>
+</html>
