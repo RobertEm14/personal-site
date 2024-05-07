@@ -519,6 +519,8 @@ body {
   }
 
   #title-container {
+    position: relative;
+    top: -180px;
     width: 100%;
     
   }
@@ -597,7 +599,7 @@ body {
 
   .logo-container {
     position: absolute;
-    top: 5%;
+    top: 180%;
     left: 0;
     display: flex;
     justify-content: center;
@@ -724,6 +726,6 @@ body {
   .block3 {
     border-left: 3px solid rgba(165, 179, 182, 0.247);
   
-  }
+  
 
 }
