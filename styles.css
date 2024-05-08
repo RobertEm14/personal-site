@@ -529,7 +529,7 @@ body {
   }
 
   .title-name {
-    text-align: center;
+    text-align: right;
     float: left;
     font-size: 3rem;
   }
@@ -544,7 +544,7 @@ body {
   }
 
   .proffesions, .proffesions h2 {
-    text-align: center;
+    text-align: right;
     
     font-weight: 0;
     text-transform: lowercase;
@@ -560,12 +560,11 @@ body {
     
   .buttons {
     
-    justify-content: space-between;
-    
     width: 100%;
     display: inline-block;
     
-    justify-content: center;
+    justify-content: end;
+    text-align: right;
   }
 
   .btn {
