@@ -129,13 +129,16 @@ body {
   top: 0;
   left: 0;
   display: flex;
+  justify-content: center;
+  
   flex-direction: column;
   width: 5%;
   height: 100vh;
   background: #e0e5ec;
   padding: 10px;
-  border-radius: 15px;
-  box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff; /* Neumorphism effect */
+  box-shadow: 50px 0px 50px black;
+  
+  
 }
 
 .nav-ul {
@@ -145,10 +148,12 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  
   justify-content: space-around; /* Evenly space the items */
 }
 
 .nav-ul li {
+  
   transition: transform 0.2s; /* Smooth transition for hover effect */
 }
 
@@ -163,39 +168,26 @@ text-align: center;
   display: block;
   padding: 10px;
   border-radius: 10px;
+  border: none;
   transition: background 0.3s, box-shadow 0.3s;
 }
 
-.nav-ul a:hover {
+.nav-ul a:hover,
+.nav-ul a:active,
+.nav-ul a:focus,
+.nav-ul a:visited
+
+ {
   background: #cbd6ee;
-  box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; /* Inset shadow for clicked effect */
+  box-shadow: inset 5px 5px 10px #120130, inset -5px -5px 10px #e0e5ec; /* Inset shadow for clicked effect */
 }
 
 i {
-  /* Space between icon and tooltip */
+  color: black;
+  font-size: 2rem;
 }
 
-.tooltip {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
 
-li:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
 
 
 
@@ -597,25 +589,35 @@ li:hover .tooltip {
 
 
   #Domov {
-    margin: -100px;
-
     width: 80%;
+    display: flex;
+    flex-direction: column;
     margin: 35% auto;
-  }
-
-  #title-container {
-    width: 100%;
     
   }
 
+  #title-container {
+    display: flex;
+    justify-content: center;  /* Centers children horizontally */
+    align-items: center;      /* Centers children vertically */
+    width: 100%;              /* Takes full width of its container */
+    flex-direction: column;   /* Stacks children vertically */
+}
+
+#inicials {
+  width: 100%;              /* Takes full width to align text center */
+  text-align: center;       /* Ensures text inside is centered */
+}
+
   .title-name {
+    width: 100%;
     text-align: center;
     float: left;
     font-size: 3rem;
   }
 
   .title-hi {
-    text-align: center;
+    width: 100%;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     text-transform: lowercase;
@@ -623,38 +625,55 @@ li:hover .tooltip {
     color: #CDD3CA;
   }
 
+
+  .proffesions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
   .proffesions, .proffesions h2 {
-    text-align: center;
+    
     
     font-weight: 0;
     text-transform: lowercase;
-    float: left;
+    
     font-size: 1.5rem;
     font-weight: 400;
     bottom: 0rem;
   }
 
   .title-prof .title-prof-second {
+    
     font-family: "Montserrat", sans-serif;
   }
     
   .buttons {
-    
+    display: flex;
+    column-gap: 10px;
     justify-content: space-between;
     
     width: 100%;
-    display: inline-block;
+   
     
     justify-content: center;
   }
 
   .btn {
     
+    
+    justify-content: space-around;
+    
     font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     border-radius: 10px;
     font-size: 0.8rem;
     bottom: -1rem;
+    margin-right: 0;
   }
+
+  
 
   #nav-bg {
     z-index: 1000;
@@ -684,6 +703,8 @@ li:hover .tooltip {
   }
 
   .nav-ul li {
+    justify-content: center;
+    align-items: center;
     
     margin: 0.5rem;
 
@@ -719,7 +740,6 @@ li:hover .tooltip {
   }
 
   .logo {
-    
     position: static;
     transform: none;
     top: auto;
