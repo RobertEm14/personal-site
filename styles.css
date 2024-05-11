@@ -541,7 +541,7 @@ i {
 
 
 
-@media (max-width: 370px) {
+@media (max-width: 270px) {
   #nav-bg {
     animation: none;
   }
