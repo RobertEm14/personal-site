@@ -6,8 +6,9 @@
 
 
 body {
+  overflow-x: hidden;
 
-  background-image: linear-gradient(120deg, rgb(18, 1, 48) 55%, rgba(248, 243, 243, 0.952) 10%);
+  background-image: linear-gradient(120deg, rgb(18, 1, 48) 55%, #ffffff 10%);
   background-attachment: fixed;
   /*background-image: linear-gradient(90deg, black 14%, #691155 66%, #5343ab4a 158%);
   background-attachment: fixed;*/
@@ -33,113 +34,30 @@ body {
 
 /* Navigačne menu */
 
-/*#nav-bg {
-  width: 10%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgb(19, 1, 53);
-  box-shadow: 0px -1px 24px #0e023d;
-  animation: slideDown 3s ease;
-}
 
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nav-ul {
-
-  width: 5rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-ul li  {
-
-  list-style: none;
-  margin-top: 1.5rem;
-  opacity: 0;
-  transform: translateX(-100px);
-}
-
-@keyframes slideAndBounce {
-  0% {
-    opacity: 0;
-    transform: translateX(-70px);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-
-  65% {
-    transform: translateX(-5px);
-
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-.nav-ul li:hover i {
-  transform: scale(1.5);
-  transition: transform 0.3s ease;
-}
-
-.nav-ul li:hover i {
-  transition: background-color 0.3s ease;
-}
-
-.nav-ul li:hover i {
-  
-  transition: transform 0.3s ease;
-}
-
-.nav-ul li:hover i {
-  
-  transition: transform 0.5s ease;
-}
-
-.fa-solid {
-  font-size: 2rem;
-}*/
 
 
 #nav-bg {
+  z-index: 50;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
-  
+
   flex-direction: column;
   width: 5%;
   height: 100vh;
-  background: #e0e5ec;
+  background: #e9e9e9;
   padding: 10px;
-  box-shadow: 50px 0px 50px black;
+  box-shadow: 2px 0px 50px black;
+  background-image: linear-gradient(111deg, white -10%, black 101%);
   
-  
+
+
 }
+
+
 
 .nav-ul {
   display: flex;
@@ -148,21 +66,25 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  
-  justify-content: space-around; /* Evenly space the items */
+
+  justify-content: space-around;
+  /* Evenly space the items */
 }
 
 .nav-ul li {
-  
-  transition: transform 0.2s; /* Smooth transition for hover effect */
+
+  transition: transform 0.2s;
+  /* Smooth transition for hover effect */
 }
 
 .nav-ul li:hover {
-  transform: translateY(-5px); /* Slight raise effect on hover */
+  transform: translateY(-5px);
+  /* Slight raise effect on hover */
 }
 
 .nav-ul a {
-text-align: center;
+  margin-bottom: 2rem;
+  text-align: center;
   text-decoration: none;
   color: #333;
   display: block;
@@ -175,11 +97,10 @@ text-align: center;
 .nav-ul a:hover,
 .nav-ul a:active,
 .nav-ul a:focus,
-.nav-ul a:visited
-
- {
-  background: #cbd6ee;
-  box-shadow: inset 5px 5px 10px #120130, inset -5px -5px 10px #e0e5ec; /* Inset shadow for clicked effect */
+.nav-ul a:visited {
+  background: #00000021;
+  box-shadow: inset 3px 3px 10px #000000da, inset -1px -1px 5px #e0e5ec;
+  /* Inset shadow for clicked effect */
 }
 
 i {
@@ -196,7 +117,7 @@ i {
 .tooltip {
   visibility: hidden;
   width: 120px;
-  background-color: rgb(226, 216, 216);
+  background-color: rgb(37, 7, 71);
   color: white;
   text-align: center;
   border-radius: 6px;
@@ -204,7 +125,7 @@ i {
   position: absolute;
   z-index: 1;
   left: 130%;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
@@ -287,7 +208,8 @@ i {
   }
 }
 
-.proffesions, .proffesions h2 {
+.proffesions,
+.proffesions h2 {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 300;
   color: #B0B9BD;
@@ -340,11 +262,11 @@ i {
   font-size: 1.5rem;
   color: #EEE;
   border: none;
-  border-radius: 50px;
+  border-radius: 1px;
   text-align: center;
   cursor: pointer;
   display: inline-block;
-  background-color: #0a011a;
+  background-color: #00000041;
   box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #d3d8d188;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -384,11 +306,11 @@ i {
   font-size: 1.5rem;
   color: #EEE;
   border: none;
-  border-radius: 50px;
+  border-radius: 10px;
   text-align: center;
   cursor: pointer;
   display: inline-block;
-  background-color: #0a011a;
+  background-color: #0000004b;
   box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #51eb0a88;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -421,28 +343,67 @@ i {
 
 /*   Sekcia Profil  */
 
-#Profil {
+.profil-background {
+  overflow-x: hidden;
+  z-index: 1;
+  position: absolute;
+  
+  top: 100%;
+  width: 100%;
+  height: 110vh;
+  background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #ffffff 10%);
+  box-shadow: 1px 0px 10px white;
+  opacity: 0;
+  transition: right 1s cubic-bezier(0.42, 0, 0.58, 1) 0.2s, opacity 1s 0.5s; /* Přidání transition pro opacity */
 
+  
+}
+
+
+
+#Profil {
+  
+  
+  z-index: 100;
+
+  
   width: 68%;
   height: auto;
   padding-top: 200px;
-  margin: 200px auto;
+  margin: 300px auto;
+}
+
+
+.motto-flex {
+  z-index: 100;
+  position: relative;
+  bottom: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #motto-container {
+  
   position: relative;
-  top: 10%;
+  bottom: 20px;
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
   flex-direction: column;
   row-gap: 2rem;
   max-width: 50%;
+  flex: 1;
 
 
 }
 
 .motto {
+  
+  text-align: right;
   color: #6ED869;
-  font-size: 3rem;
+  text-shadow: 1px 1px 3px black;
+  font-size: 1.9rem;
 
 }
 
@@ -450,34 +411,46 @@ i {
   content: "";
   position: relative;
   padding-left: 3px;
-  margin-right: 1%;
+  margin-right: 5px;
+  
   top: 0;
   left: 0;
   width: 1px;
   height: auto;
-  background-color: #6ED869;
+  background-color: #6354e9;
 }
 
 .motto-text {
-  padding-left: 5%;
-  color: white;
-  font-size: 1.5rem;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  text-shadow: 1px 1px 3px black;
+  background-color: rgba(0, 0, 0, 0.452);
+  box-shadow: 1px 5px 10px black;
+  border-radius: 5px;
+  
+  max-width: 100%;
+  font-family: "Montserrat", sans-serif;
+  
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 300;
   text-align: justify;
+  
 
 }
 
-.portret-container {
-  width: 100%;
-  height: auto;
-}
+
 
 .profil-img img {
-
-  height: 80rem;
-  float: right;
-  position: relative;
-  bottom: 35rem;
-  left: 14rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  display: flex;
+  height: 45rem;
+  flex: 1;
+ 
+  
 
 }
 
@@ -486,9 +459,9 @@ i {
 }
 
 #text-blocks-bg {
-  border-left: 2px solid rgb(72, 44, 197);
-  border-top: 2px solid rgb(88, 39, 179);
-  padding: 15px;
+  z-index: 100;
+  
+  
   position: absolute;
   bottom: -90%;
   justify-content: center;
@@ -496,14 +469,24 @@ i {
   display: flex;
   width: 68%;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.452);
-  border-radius: 10px;
-  box-shadow: inset 1px 5px 10px rgb(33, 1, 59), -5px -5px 5px rgba(15, 15, 15, 0.781);
+  
+  
+  
+ 
+ 
+  
+  
 }
 
 .text-blocks {
+  
+  
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 1px 2px 2px black;
+  font-style: italic;
+  font-weight: 300;
   text-align: justify;
-  font-size: 1.4rem;
+  font-size: 1rem;
   column-gap: 3rem;
   display: flex;
   color: white;
@@ -517,8 +500,14 @@ i {
 .block1,
 .block2,
 .block3 {
-  border-left: 3px solid yellow;
+ 
+  
+  border-radius: 0 5px 5px 0;
+  
+  padding: 15px;
+  border-left: 3px solid rgb(49, 8, 116);
   padding-left: 2rem;
+  
   position: relative;
   /* Necessary for absolute positioning inside */
 }
@@ -541,9 +530,13 @@ i {
 
 
 
-@media (min-width: 350px) and (max-width: 880px) {
+@media (max-width: 600px) {
   #nav-bg {
     animation: none;
+  }
+
+  .nav-ul a {
+    margin-bottom: 0;
   }
 
   .hamburger {
@@ -554,12 +547,17 @@ i {
 
   }
 
+  .motto-flex {
+    display: block;
+  }
+
   body {
+    overflow-x: hidden;
 
     background-image: linear-gradient(170deg, rgb(18, 1, 48) 35%, rgba(248, 243, 243, 0.952) 10%);
     min-height: 100vh;
     width: 100%;
-   /* background-image: linear-gradient(150deg, black 14%, #691155 49%, #5343ab4a 102%);
+    /* background-image: linear-gradient(150deg, black 14%, #691155 49%, #5343ab4a 102%);
 
     background-attachment: fixed;
 
@@ -589,25 +587,33 @@ i {
 
 
   #Domov {
+    
     width: 80%;
     display: flex;
     flex-direction: column;
     margin: 30% auto;
     
+
   }
 
   #title-container {
     display: flex;
-    justify-content: center;  /* Centers children horizontally */
-    align-items: center;      /* Centers children vertically */
-    width: 100%;              /* Takes full width of its container */
-    flex-direction: column;   /* Stacks children vertically */
-}
+    justify-content: center;
+    /* Centers children horizontally */
+    align-items: center;
+    /* Centers children vertically */
+    width: 100%;
+    /* Takes full width of its container */
+    flex-direction: column;
+    /* Stacks children vertically */
+  }
 
-#inicials {
-  width: 100%;              /* Takes full width to align text center */
-  text-align: center;       /* Ensures text inside is centered */
-}
+  #inicials {
+    width: 100%;
+    /* Takes full width to align text center */
+    text-align: center;
+    /* Ensures text inside is centered */
+  }
 
   .title-name {
     width: 100%;
@@ -621,7 +627,7 @@ i {
     position: relative;
     right: 2%;
     width: 100%;
-    
+
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     text-transform: lowercase;
@@ -630,54 +636,56 @@ i {
   }
 
 
-  .proffesions{
+  .proffesions {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
   }
-  .proffesions, .proffesions h2 {
-    
-    
+
+  .proffesions,
+  .proffesions h2 {
+
+
     font-weight: 0;
     text-transform: lowercase;
-    
+
     font-size: 1.5rem;
     font-weight: 400;
     bottom: 0rem;
   }
 
   .title-prof .title-prof-second {
-    
+
     font-family: "Montserrat", sans-serif;
   }
-    
+
   .buttons {
     display: flex;
     column-gap: 10px;
     justify-content: space-between;
-    
+
     width: 100%;
-   
-    
+
+
     justify-content: center;
   }
 
   .btn {
-    
-    
+
+    background-color: #190236;
     justify-content: space-around;
-    
+
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 0.8rem;
     bottom: -1rem;
     margin-right: 0;
   }
 
-  
+
 
   #nav-bg {
     z-index: 1000;
@@ -699,7 +707,7 @@ i {
   }
 
   .nav-ul {
-    
+
     flex-direction: column;
     width: 100%;
     height: auto;
@@ -709,7 +717,7 @@ i {
   .nav-ul li {
     justify-content: center;
     align-items: center;
-    
+
     margin: 0.5rem;
 
     transform: translateX(0);
@@ -725,9 +733,25 @@ i {
 
   }
 
-  .nav-ul li a {
-    
+  .tooltip {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.911);
+    width: 120px;
+    background: none;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0px;
+    position: absolute;
+    z-index: 1;
+    left: 60%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
   }
+
+  .nav-ul li a {}
 
 
 
@@ -752,26 +776,26 @@ i {
   }
 
   /*  PROFIL */
-
+  
+  .profil-background {
+    display: none;
+  }
 
   #Profil {
+    
     margin-top: 50%;
     width: 95%
-    
-    
-    
-   
   }
 
   #motto-container {
-  
+
     padding: 0;
     display: inline;
     width: 100%;
     height: auto;
     position: relative;
-    
-    top: -140px;
+
+    top: 0px;
 
   }
 
@@ -786,48 +810,50 @@ i {
     border-radius: 5px;
     padding: 15px;
     text-shadow: 1px 1px 0.5px rgb(37, 39, 37);
-    
+
 
   }
 
   .motto-text {
+    text-shadow: none;
+    max-width: 100%;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
-    background-color: rgba(247, 239, 239, 0.87);
+    background-color: #f7efefde;
     backdrop-filter: blur(5px);
     box-shadow: inset 2px 2px 10px rgb(255, 255, 255), 0px 5px 10px black;
     border-radius: 5px;
     padding: 15px;
-    width: 100%;
+    
     font-size: 0.9rem;
     text-align: justify;
     color: #190236;
 
   }
 
-  .profil-img img{
+  .profil-img img {
     opacity: 1;
     width: 100%;
     height: fit-content;
-    
+
     position: absolute;
-    top: -150px;
+    top: 270px;
     left: 0;
   }
 
   #text-blocks-bg {
     display: none;
   }
-  
+
   .text-blocks-hidden {
     background-color: rgba(247, 239, 239, 0.87);
     backdrop-filter: blur(5px);
     box-shadow: inset 2px 2px 10px rgb(255, 255, 255), 0px 5px 10px black;
     border-radius: 5px;
     position: static;
-    
+
     width: 100%;
-    
+
     padding: 25px;
     position: relative;
     top: 260px;
@@ -839,16 +865,19 @@ i {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-style: italic;
-    
+
     color: #190236;
-    
+
     margin: 10% -10px;
     text-align: justify;
   }
 
- 
 
-  .block1 h3, .block2  h3, .block3  h3 {
+
+  .block1 h3,
+  .block2 h3,
+  .block3 h3 {
+    
     text-shadow: 1px 1px 1px rgb(116, 113, 113);
     margin-left: -10px;
     color: rgb(43, 3, 80);
@@ -857,14 +886,16 @@ i {
   .block1,
   .block2,
   .block3 {
+    box-shadow: none;
+    
     border-left: 3px solid rgba(165, 179, 182, 0.247);
-  
-}
 
-.fa-solid {
-  font-size: 3rem;
-  text-decoration: none;
-  color: white;
-}
+  }
+
+  .fa-solid {
+    font-size: 3rem;
+    text-decoration: none;
+    color: white;
+  }
 
 }
