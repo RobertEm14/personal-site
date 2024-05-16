@@ -89,13 +89,20 @@ window.addEventListener('resize', function() {
 window.addEventListener('scroll', function() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     const profilBg = document.querySelector('.profil-background');
+    const mottoText = document.querySelector('.motto-text');
 
     if (scrollPosition > 100) {
-        profilBg.style.right = "0"; // Přesun do viditelné oblasti
-        profilBg.style.opacity = "1"; // Změna průhlednosti na plnou
+        profilBg.style.right = "0"; // Presun do viditeľnej oblasti
+        profilBg.style.opacity = "1"; // Zmena priesvitnosti na plnú
+
+        mottoText.style.opacity = "1"; // Zmena priesvitnosti na plnú
+        mottoText.style.transform = "translateX(0)"; // Presun do viditeľnej oblasti
     } else {
-        profilBg.style.right = "-100%"; // Vrátit zpět za obrazovku
-        profilBg.style.opacity = "0"; // Skrytí průhledností
+        profilBg.style.right = "-100%"; // Vrátiť späť za obrazovku
+        profilBg.style.opacity = "0"; // Skrytie priesvitnosťou
+
+        mottoText.style.opacity = "0"; // Skrytie priesvitnosťou
+        mottoText.style.transform = "translateX(50%)"; // Vrátiť späť za obrazovku
     }
 });
 
@@ -175,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div id="motto-container" >
                 <h2 class="motto" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="1000">"web ktorý hovorí za vás"</h2>
-                <p class="motto-text" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1000">
+                <p class="motto-text">
                     Zdravím. Volám sa Róbert , váš partner pre web development a grafický dizajn. Moje nadšenie pre technológie a kreatívny dizajn mi pomáha vytvárať vizuálne príťažlivé a technicky rafinované webové riešenia. Zameriavam sa na pochopenie vašich potrieb a transformujem vaše idey do skutočnosti.
                 </p>
             </div>
