@@ -104,7 +104,7 @@ body {
 }
 
 i {
-  color: black;
+  color: rgb(18, 1, 48);
   font-size: 2rem;
 }
 
@@ -171,6 +171,7 @@ i {
   font-size: 3rem;
   font-family: Arial, Helvetica, sans-serif;
   animation: slideFromLeft 1s ease forwards;
+  opacity: 0;
 
 }
 
@@ -254,80 +255,78 @@ i {
 }
 
 
+.buttons {
+  display: flex;
+  column-gap: 2rem;
+}
 
-
-.btn {
-  padding: 10px 20px;
+.buttons a {
   text-decoration: none;
-  font-size: 1.5rem;
-  color: #EEE;
-  border: none;
-  border-radius: 1px;
-  text-align: center;
-  cursor: pointer;
-  display: inline-block;
-  background-color: #00000041;
-  box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #d3d8d188;
-  transition: all 0.3s ease-in-out;
+}
+
+button {
+  
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+  background: rgb(74, 6, 192);
+    /*background: #183153;*/
+  font-family: "Montserrat", sans-serif;
+  /*box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);*/
+  box-shadow:  2px 2px 10px rgb(0, 0, 0);
   overflow: hidden;
+  cursor: pointer;
+  border: none;
 }
 
-.btn::before {
-  content: '';
+button:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: #ffd401;
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
   transition: all 0.4s ease-in-out;
-  border-radius: 35%;
-  display: block;
-  z-index: 0;
+  right: 0;
 }
 
-.btn:hover::before,
-.btn:focus::before {
-  top: 0;
+button:hover::after {
+  right: auto;
   left: 0;
   width: 100%;
-  height: 100%;
-  border-radius: 50px;
 }
 
-.left-btn,
-.right-btn {
-  margin-right: 0.8rem;
-}
-
-.right-btn {
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: #EEE;
-  border: none;
-  border-radius: 10px;
+button span {
   text-align: center;
-  cursor: pointer;
-  display: inline-block;
-  background-color: #0000004b;
-  box-shadow: inset -6px -6px 20px #0f010c, -4px -2px 3px #51eb0a88;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
   transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
 }
 
-.btn:hover,
-.btn:focus {
-  color: #FFF;
-  box-shadow: inset 2px 2px 4px #0f0f0f, inset -2px -2px 4px #333;
-  transform: scale(1.05);
+button:hover span {
+  color: #120130;
+  animation: scaleUp 0.3s ease-in-out;
 }
 
-.btn:active {
-  color: #CCC;
-  box-shadow: inset 1px 1px 2px #0f0f0f, inset -1px -1px 2px #333;
-  transform: scale(0.95);
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 
@@ -354,7 +353,7 @@ i {
   background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #ffffff 10%);
   box-shadow: 1px 0px 10px white;
   opacity: 0;
-  transition: right 1s cubic-bezier(0.42, 0, 0.58, 1) 0.2s, opacity 1s 0.5s; /* Přidání transition pro opacity */
+  transition: right 1s ease-out 0.2s, opacity 1s 0.5s; /* Přidání transition pro opacity */
 
   
 }
@@ -662,8 +661,11 @@ i {
   }
 
   .buttons {
+    position: relative;
+    top: 20px;
     display: flex;
     column-gap: 10px;
+    
     justify-content: space-between;
 
     width: 100%;
@@ -672,18 +674,26 @@ i {
     justify-content: center;
   }
 
-  .btn {
-
-    background-color: #190236;
-    justify-content: space-around;
-
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    bottom: -1rem;
-    margin-right: 0;
+  .btn-left,
+  .btn-right {
+    font-size: 0.5rem;
+    
   }
+
+  button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 12px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+  }
+
+  
 
 
 
@@ -788,6 +798,7 @@ i {
   }
 
   #motto-container {
+    overflow: hidden;
 
     padding: 0;
     display: inline;
@@ -815,6 +826,7 @@ i {
   }
 
   .motto-text {
+    overflow: hidden;
     text-shadow: none;
     max-width: 100%;
     font-family: "Montserrat", sans-serif;
