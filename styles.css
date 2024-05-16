@@ -631,7 +631,7 @@ button:hover span {
     font-weight: 400;
     text-transform: lowercase;
     font-size: 2rem;
-    color: #CDD3CA;
+    color: #5a06c7;
   }
 
 
@@ -645,6 +645,7 @@ button:hover span {
 
   .proffesions,
   .proffesions h2 {
+    color: #737575;
 
 
     font-weight: 0;
@@ -656,7 +657,7 @@ button:hover span {
   }
 
   .title-prof .title-prof-second {
-
+    
     font-family: "Montserrat", sans-serif;
   }
 
