@@ -434,8 +434,24 @@ button:hover span {
   font-size: 1rem;
   font-weight: 300;
   text-align: justify;
+  opacity: 0; /* Začiatočný stav */
+  transform: translateX(50%); /* Začiatočný stav */
+  transition: opacity 1s ease 1.2s, transform 1s ease 1.2s; /* Prechodové efekty s oneskorením */
+}
   
 
+
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 
