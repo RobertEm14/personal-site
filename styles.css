@@ -350,8 +350,8 @@ button:hover span {
   top: 100%;
   width: 100%;
   height: 110vh;
-  background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #ffffff 10%);
-  box-shadow: 1px 0px 10px white;
+  background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #01012e 10%);
+  box-shadow: 1px 10px 10px rgb(0, 0, 0);
   opacity: 0;
   transition: right 1s ease-out 0.2s, opacity 1s 0.5s; /* Přidání transition pro opacity */
 
@@ -374,6 +374,7 @@ button:hover span {
 
 
 .motto-flex {
+  
   z-index: 100;
   position: relative;
   bottom: 200px;
@@ -383,6 +384,7 @@ button:hover span {
 }
 
 #motto-container {
+  overflow: hidden;
   
   position: relative;
   bottom: 20px;
