@@ -458,6 +458,8 @@ button:hover span {
 
 
 
+
+
 .profil-img img {
   overflow: hidden;
   justify-content: center;
@@ -825,7 +827,7 @@ button:hover span {
     height: auto;
     position: relative;
 
-    top: 0px;
+    top: 50px;
 
   }
 
@@ -859,7 +861,22 @@ button:hover span {
     font-size: 0.9rem;
     text-align: justify;
     color: #190236;
+    opacity: 0; /* Začiatočný stav */
+    transform: translateY(50%); /* Začiatočný stav */
+    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s; /* Prechodové efekty s oneskorením */
 
+  }
+
+   @keyframes slideFromRight {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .profil-img img {
@@ -868,7 +885,7 @@ button:hover span {
     height: fit-content;
 
     position: absolute;
-    top: 270px;
+    top: 290px;
     left: 0;
   }
 
@@ -887,7 +904,7 @@ button:hover span {
 
     padding: 25px;
     position: relative;
-    top: 260px;
+    top: 230px;
     margin-top: 3%;
     display: block;
   }
