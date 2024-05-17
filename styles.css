@@ -863,7 +863,7 @@ button:hover span {
     color: #190236;
     opacity: 0; /* Začiatočný stav */
     transform: translateY(50%); /* Začiatočný stav */
-    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s; /* Prechodové efekty s oneskorením */
+    transition: opacity 1s ease 1s, transform 1s ease 1s; /* Prechodové efekty s oneskorením */
 
   }
 
