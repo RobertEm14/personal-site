@@ -264,7 +264,8 @@ i {
   text-decoration: none;
 }
 
-button {
+.btn-left,
+.btn-right {
   
   position: relative;
   display: flex;
@@ -280,8 +281,8 @@ button {
   cursor: pointer;
   border: none;
 }
-
-button:after {
+.btn-left:after,
+.btn-right:after {
   content: " ";
   width: 0%;
   height: 100%;
@@ -291,13 +292,15 @@ button:after {
   right: 0;
 }
 
-button:hover::after {
+.btn-left:hover::after,
+.btn-right:hover::after {
   right: auto;
   left: 0;
   width: 100%;
 }
 
-button span {
+.btn-left span,
+.btn-right span {
   text-align: center;
   text-decoration: none;
   width: 100%;
@@ -310,7 +313,8 @@ button span {
   transition: all 0.3s ease-in-out;
 }
 
-button:hover span {
+.btn-left:hover span,
+.btn-right:hover span {
   color: #120130;
   animation: scaleUp 0.3s ease-in-out;
 }
@@ -350,7 +354,7 @@ button:hover span {
   top: 100%;
   width: 100%;
   height: 110vh;
-  background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #01012e 10%);
+  background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #0c0a29 10%);
   box-shadow: 1px 10px 10px rgb(0, 0, 0);
   opacity: 0;
   transition: right 1s ease-out 0.2s, opacity 1s 0.5s; /* Přidání transition pro opacity */
@@ -424,9 +428,9 @@ button:hover span {
 .motto-text {
   padding: 15px;
   backdrop-filter: blur(10px);
-  text-shadow: 1px 1px 3px black;
+  text-shadow: 1px 1px 3px rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.452);
-  box-shadow: 1px 5px 10px black;
+  box-shadow: 1px 5px 10px rgb(0, 0, 0);
   border-radius: 5px;
   
   max-width: 100%;
@@ -454,6 +458,32 @@ button:hover span {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+
+.nastroje-container {
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  position: relative;
+  bottom: 50px;
+  
+  
+
+}
+
+.nastroje img {
+  height: 2.5rem;
+}
+
+
+.nastroje {
+
+  
+  display: flex;
+  column-gap: 50px;
 }
 
 
@@ -512,8 +542,10 @@ button:hover span {
 }
 
 .text-blocks h3 {
+  
+  
   padding-bottom: 10%;
-  color: #eed460;
+  color: #6ED869;
 }
 
 .block1,
@@ -693,10 +725,12 @@ button:hover span {
 
 
     justify-content: center;
+    
   }
 
   .btn-left,
   .btn-right {
+    box-shadow: none;
     font-size: 0.5rem;
     
   }
@@ -712,6 +746,7 @@ button:hover span {
     letter-spacing: 0.3em;
     z-index: 20;
     transition: all 0.3s ease-in-out;
+    
   }
 
   
@@ -863,7 +898,7 @@ button:hover span {
     color: #190236;
     opacity: 0; /* Začiatočný stav */
     transform: translateY(50%); /* Začiatočný stav */
-    transition: opacity 1s ease 1s, transform 1s ease 1s; /* Prechodové efekty s oneskorením */
+    transition: opacity 1s ease 1.5s, transform 1s ease 1.5s; /* Prechodové efekty s oneskorením */
 
   }
 
@@ -946,4 +981,19 @@ button:hover span {
     color: white;
   }
 
+  .nastroje-container {
+    position: relative;
+    top: 1140px;
+    width: 100%;
+  }
+  
+  .nastroje {
+    column-gap: 15px;
+  }
+  
+  .nastroje img {
+    height: 2.5rem;
+  }
+
 }
+
