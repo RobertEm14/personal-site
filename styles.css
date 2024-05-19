@@ -388,7 +388,7 @@ i {
 }
 
 #motto-container {
-  overflow: hidden;
+  
   
   position: relative;
   bottom: 20px;
@@ -461,10 +461,70 @@ i {
 }
 
 
+.profil-tlacidla {
+  display: flex;
+  column-gap: 15%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: 6px;
+}
+
+.zivotopis-text  {
+  position: static;
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
+
+
+
+.viac {
+  
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1d2991;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ }
+ 
+.viac span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+ }
+ 
+.viac span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+ }
+ 
+.viac:hover span {
+  padding-right: 15px;
+ }
+ 
+.viac:hover span:after {
+  opacity: 1;
+  right: 0;
+ }
+
+
 .nastroje-container {
   z-index: 100;
   display: flex;
-  width: 100%;
+  width: 104%;
   height: auto;
   justify-content: center;
   position: relative;
@@ -475,7 +535,7 @@ i {
 }
 
 .nastroje img {
-  height: 2.5rem;
+  
 }
 
 
@@ -491,6 +551,7 @@ i {
 
 
 .profil-img img {
+  
   overflow: hidden;
   justify-content: center;
   align-items: center;
@@ -535,7 +596,7 @@ i {
   font-style: italic;
   font-weight: 300;
   text-align: justify;
-  font-size: 1rem;
+  font-size: 0.94rem;
   column-gap: 3rem;
   display: flex;
   color: white;
@@ -561,6 +622,113 @@ i {
   
   position: relative;
   /* Necessary for absolute positioning inside */
+}
+
+
+
+/******SEKCIA SLUZBY*******/
+
+#Služby {
+  
+  width: 68%;
+  height: auto;
+  padding-top: 200px;
+  margin: 0px auto;
+  align-items: start;
+  justify-content: center;
+}
+
+.sluzby-privitanie {
+  
+  width: 100%;
+  position: relative;
+  bottom: 350px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.sluzby-privitanie h2 {
+  color: #6ED869;
+  text-shadow: 1px 1px 3px black;
+  font-size: 1.9rem;
+}
+
+.sluzby-privitanie p {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  max-width: 40%;
+  text-align: justify;
+}
+
+
+.card-container {
+  width: 100%;
+  display: flex;
+  column-gap: 20px;
+  position: relative;
+  bottom: 300px;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  background-color: #8b57e4;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 290px;
+  height: 354px;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid coral;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
+     rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
+  color: coral;
+}
+
+.flip-card-back {
+  background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
+     bisque 40%, rgb(255, 185, 160) 78%);
+  color: white;
+  transform: rotateY(180deg);
 }
 
 
@@ -924,6 +1092,77 @@ i {
     left: 0;
   }
 
+  .profil-tlacidla {
+    width: 100%;
+    position: relative;
+    top: 370px;
+    display: flex;
+    column-gap: 10%;
+    justify-content: center;
+    
+  }
+  
+  .zivotopis-text  {
+    position: static;
+    text-decoration: none;
+    color: rgb(25, 6, 95);
+    font-size: 17px;
+    transition: all 2.5s;
+    
+  }
+
+  .zivotopis-text:hover {
+    font-size: 20px;
+    
+  }
+  
+  
+  
+  .viac {
+   
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #1d2991;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 10px;
+    padding: 6px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+   }
+
+   .viac:hover {
+    font-size: 11px;
+   }
+   
+  .viac span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+   }
+   
+  .viac span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 11px;
+    right: -15px;
+    transition: 0.5s;
+   }
+   
+  .viac:hover span {
+    padding-right: 15px;
+   }
+   
+  .viac:hover span:after {
+    opacity: 1;
+    right: 0;
+   }
+
   #text-blocks-bg {
     display: none;
   }
@@ -969,6 +1208,7 @@ i {
   .block1,
   .block2,
   .block3 {
+    
     box-shadow: none;
     
     border-left: 3px solid rgba(165, 179, 182, 0.247);
@@ -993,6 +1233,50 @@ i {
   
   .nastroje img {
     height: 2.5rem;
+  }
+
+  #Služby {
+    
+    position: relative;
+    top: 250px;
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .sluzby-privitanie {
+    position: relative;
+    text-align: center;
+    
+    width: 100%;
+  }
+
+  .sluzby-privitanie h2 {
+    font-size: 1.7rem;
+    display: block;
+  }
+
+  .sluzby-privitanie p {
+    color: #090450;
+    width: 100%;
+    
+  }
+
+  .card-container {
+    
+    
+    
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .flip-card {
+    width: 100%;
+    height: 254px;
   }
 
 }
