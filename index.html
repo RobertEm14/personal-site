@@ -15,21 +15,21 @@
     <title>Document</title>
 </head>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
+    // Animácia ikon navigácie
     const icons = document.querySelectorAll('.nav-ul li');
-    const initialDelay = 1000; // Počiatočné oneskorenie v milisekundách
+    const initialDelay = 1000;
     icons.forEach((icon, index) => {
         setTimeout(() => {
             icon.style.animation = `slideAndBounce 1s forwards`;
-        }, initialDelay + 100 * index); // Zvýšenie oneskorenia pre každú ikonu
+        }, initialDelay + 100 * index);
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+    // Navigačné menu
     const hamburger = document.querySelector('.hamburger');
     const navBg = document.getElementById('nav-bg');
     const navLinks = document.querySelectorAll('.nav-ul li a');
-    const htmlBody = document.querySelector('html'); // Target the html element as well
+    const htmlBody = document.querySelector('html');
 
     hamburger.addEventListener('click', function(event) {
         event.stopPropagation();
@@ -57,70 +57,22 @@ document.addEventListener("DOMContentLoaded", function() {
             closeMenu();
         } else {
             navBg.style.left = "0px";
-            htmlBody.style.overflow = "hidden"; // Disable scrolling
+            htmlBody.style.overflow = "hidden";
         }
     }
 
     function closeMenu() {
         navBg.style.left = "-150%";
-        htmlBody.style.overflow = "auto"; // Enable scrolling
-    }
-});
-
-window.addEventListener('resize', function() {
-    const htmlBody = document.querySelector('html');
-    if (window.innerWidth > 600) {
         htmlBody.style.overflow = "auto";
     }
-});
 
-
-window.addEventListener('resize', function() {
-    // Add or remove the outside click listener based on screen width
-    if (window.innerWidth <= 600) {
-        document.addEventListener('click', handleOutsideClicks);
-    } else {
-        document.removeEventListener('click', handleOutsideClicks);
-    }
-});
-
-
-
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    const profilBg = document.querySelector('.profil-background');
-    const mottoText = document.querySelector('.motto-text');
-
-    if (scrollPosition > 10) {
-        profilBg.style.right = "0"; // Presun do viditeľnej oblasti
-        profilBg.style.opacity = "1"; // Zmena priesvitnosti na plnú
-
-        mottoText.style.opacity = "1"; // Zmena priesvitnosti na plnú
-        mottoText.style.transform = "translateX(0)"; // Presun do viditeľnej oblasti
-    } else {
-        profilBg.style.right = "-100%"; // Vrátiť späť za obrazovku
-        profilBg.style.opacity = "0"; // Skrytie priesvitnosťou
-
-        mottoText.style.opacity = "0"; // Skrytie priesvitnosťou
-        mottoText.style.transform = "translateX(50%)"; // Vrátiť späť za obrazovku
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Vybereme všechny odkazy s kotvou na stránce
+    // Plynulé scrollovanie
     const smoothLinks = document.querySelectorAll('a[href^="#"]');
-
-    // Pro každý odkaz aplikujeme posluchače událostí
     smoothLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            // Zabráníme defaultnímu chování prokliku
             e.preventDefault();
-
-            // Získáme cílový element pomocí ID z href atributu odkazu
             const id = link.getAttribute('href');
             const target = document.querySelector(id);
-            
-            // Použijeme scrollIntoView s konfigurací pro jemné scrollování
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
@@ -130,6 +82,61 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Sledovanie veľkosti okna pre adaptívnosť menu
+window.addEventListener('resize', function() {
+    const htmlBody = document.querySelector('html');
+    if (window.innerWidth > 600) {
+        htmlBody.style.overflow = "auto";
+    }
+
+    if (window.innerWidth <= 600) {
+        document.addEventListener('click', handleOutsideClicks);
+    } else {
+        document.removeEventListener('click', handleOutsideClicks);
+    }
+});
+
+// Animácia pri scrollovaní
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    const profilBg = document.querySelector('.profil-background');
+    const mottoText = document.querySelector('.motto-text');
+
+    if (scrollPosition > 10) {
+        profilBg.style.right = "0";
+        profilBg.style.opacity = "1";
+
+        mottoText.style.opacity = "1";
+        mottoText.style.transform = "translateX(0)";
+    } else {
+        profilBg.style.right = "-100%";
+        profilBg.style.opacity = "0";
+
+        mottoText.style.opacity = "0";
+        mottoText.style.transform = "translateX(50%)";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Navigačné menu
+    const navLinks = document.querySelectorAll('.nav-ul li a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Zabrániť štandardnému správaniu
+            const id = link.getAttribute('href');
+            const target = document.querySelector(id);
+            if (target) {
+                // Scrollovanie s posunutím pre malé obrazovky
+                const offset = window.innerWidth <= 600 ? 50 : 0; // Prispôsob posunutie
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+});
+
 
 
 
