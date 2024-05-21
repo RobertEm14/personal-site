@@ -787,18 +787,20 @@ i {
 
   .btn-left,
   .btn-right {
+    box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.596);
+    
     width: 100%;
-    box-shadow: none;
+    
     font-size: 0.5rem;
+    background-color: #11033a;
   }
 
   button span {
     text-align: center;
     text-decoration: none;
     width: 100%;
-    padding: 10px 0px;
+    padding: 10px;
     color: #fff;
-    font-size: 1.125em;
     font-weight: 700;
     letter-spacing: 0.3em;
     z-index: 20;
