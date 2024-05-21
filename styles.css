@@ -7,7 +7,7 @@
 body {
   
   
-  background-image: linear-gradient(120deg, rgb(18, 1, 48) 55%, #ffffff 10%);
+  background-image: linear-gradient(120deg, rgb(18, 1, 48) 57%, #ffffff 10%);
   background-attachment: fixed;
   /*background-image: linear-gradient(90deg, black 14%, #691155 66%, #5343ab4a 158%);
   background-attachment: fixed;*/
@@ -134,7 +134,7 @@ i {
   z-index: 1000;
 }
 
-#Domov {
+/*#Domov {
   padding-top: 100px;
   margin-top: -100px;
 }
@@ -308,7 +308,207 @@ i {
   height: 30rem;
   display: flex;
   animation: scaleup 2s ease-in;
+}*/
+
+
+/* Ensure the section takes the full viewport height */
+#Domov {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
 }
+
+/* Flex container to center content both vertically and horizontally */
+#title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Adjust width as needed */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+}
+
+#left-flex {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+
+#right-flex {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-hi {
+  color: aliceblue;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  animation: slideFromLeft 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.title-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1;
+  color: #6ed869;
+  font-size: 8rem;
+  animation: slideFromRight 1s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.proffesions,
+.proffesions h2 {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 300;
+  color: #b0b9bd;
+  position: relative;
+  bottom: 0.8rem;
+  display: flex;
+  column-gap: 1rem;
+  font-size: 2rem;
+}
+
+.title-prof,
+.title-prof-second {
+  position: relative;
+  padding-left: 1rem;
+  animation: scaleup 2s ease-in;
+}
+
+.title-prof::before,
+.title-prof-second::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 35px;
+  background-color: blue;
+}
+
+.title-prof::before {
+  background-color: #fecc00;
+}
+
+.title-prof-second::before {
+  background-color: rgb(118, 131, 248);
+}
+
+.buttons {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.buttons a {
+  text-decoration: none;
+}
+
+.btn-left,
+.btn-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+  background: rgb(74, 6, 192);
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+}
+.btn-left:after,
+.btn-right:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: #ffd401;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.btn-left:hover::after,
+.btn-right:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+
+.btn-left span,
+.btn-right span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-left:hover span,
+.btn-right:hover span {
+  color: #120130;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo {
+  height: 30rem;
+  display: flex;
+  animation: scaleup 2s ease-in;
+}
+
+
+
 
 /*   Sekcia Profil  */
 
@@ -317,8 +517,8 @@ i {
   position: absolute;
   top: 100%;
   width: 100%;
-  height: 110vh;
-  background-image: linear-gradient(120deg, rgb(0, 0, 0) 55%, #0c0a29 10%);
+  height: 100vh;
+  background-image: linear-gradient(120deg, rgb(0, 0, 0) 57%, #0c0a29 10%);
   box-shadow: 1px 10px 10px rgb(0, 0, 0);
   opacity: 0;
   transition: right 1s ease-out 0.2s, opacity 1s 0.5s; /* Přidání transition pro opacity */
@@ -329,14 +529,14 @@ i {
 
   width: 68%;
   height: auto;
-  padding-top: 200px;
-  margin: 300px auto;
+  margin: 0 auto;
+  
+  
 }
 
 .motto-flex {
   z-index: 100;
   position: relative;
-  bottom: 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -467,7 +667,7 @@ i {
   height: auto;
   justify-content: center;
   position: relative;
-  bottom: 50px;
+  top: 150px;
 }
 
 
@@ -534,18 +734,22 @@ i {
 /******SEKCIA SLUZBY*******/
 
 #Služby {
+  
+  
+  flex-direction: column;
   width: 68%;
   height: auto;
   padding-top: 200px;
-  margin: 0px auto;
-  align-items: start;
+  margin: 200px auto;
+  align-items: center;
   justify-content: center;
 }
 
 .sluzby-privitanie {
   width: 100%;
   position: relative;
-  bottom: 350px;
+  
+  
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
@@ -569,7 +773,8 @@ i {
   display: flex;
   column-gap: 20px;
   position: relative;
-  bottom: 300px;
+  
+  
 }
 
 .card {
@@ -669,7 +874,7 @@ i {
   body {
     background-image: linear-gradient(
       170deg,
-      rgb(18, 1, 48) 37%,
+      rgb(18, 1, 48) 30%,
       rgba(248, 243, 243, 0.952) 10%
     );
     min-height: 100vh;
@@ -692,7 +897,7 @@ i {
   }
 
   #Domov {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 30% auto;
@@ -801,7 +1006,7 @@ i {
     text-decoration: none;
     width: 100%;
     padding: 16px;
-    color: #ffffff;
+    color: #ffffff88;
     font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 0.3em;
