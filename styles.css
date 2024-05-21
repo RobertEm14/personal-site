@@ -1110,7 +1110,7 @@ i {
     width: 100%;
     height: auto;
     position: relative;
-    top: 0px;
+    bottom: 200px;
   }
 
   .motto {
