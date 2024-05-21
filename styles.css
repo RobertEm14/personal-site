@@ -900,7 +900,7 @@ i {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 7.5% auto;
+    margin: 6% auto;
   }
 
   #title-container {
@@ -1098,7 +1098,7 @@ i {
   }
 
   #Profil {
-    margin-top: 50%;
+    margin-top: 0%;
     width: 95%;
   }
 
@@ -1110,7 +1110,7 @@ i {
     width: 100%;
     height: auto;
     position: relative;
-    bottom: 200px;
+    bottom: 250px;
   }
 
   .motto {
