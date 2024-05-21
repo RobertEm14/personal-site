@@ -795,12 +795,14 @@ i {
     background-color: #11033a;
   }
 
-  button span {
+  .btn-left span,
+  .btn-right span {
     text-align: center;
     text-decoration: none;
     width: 100%;
-    padding: 10px;
-    color: #fff;
+    padding: 16px;
+    color: #ffffff;
+    font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 0.3em;
     z-index: 20;
@@ -1104,7 +1106,7 @@ i {
 }
 
 .sluzby-privitanie h2 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .sluzby-privitanie p {
