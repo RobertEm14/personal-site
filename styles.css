@@ -879,6 +879,7 @@ i {
     );
     min-height: 100vh;
     width: 100%;
+    overflow-x: hidden;
     
   }
 
@@ -1098,13 +1099,12 @@ i {
   }
 
   #Profil {
-    overflow-x: hidden;
     margin-top: 10%;
     width: 95%;
   }
 
   #motto-container {
-    overflow: hidden;
+    
 
     padding: 0;
     display: inline;
