@@ -1165,7 +1165,7 @@ i {
     height: fit-content;
 
     position: absolute;
-    top: 250px;
+    top: 200px;
     left: 0;
   }
 
@@ -1284,7 +1284,7 @@ i {
 
   .nastroje-container {
     position: relative;
-    top: 1180px;
+    top: 1220px;
     width: 100%;
   }
 
@@ -1298,7 +1298,7 @@ i {
 
   #Služby {
     padding-top: 80px;  /* Zmenšiť padding */
-    margin-top: 50px;    /* Zmenšiť margin */
+    margin-top: 150px;    /* Zmenšiť margin */
     display: flex;
     width: 95%;
     justify-content: center;
