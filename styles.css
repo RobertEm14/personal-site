@@ -1111,7 +1111,8 @@ i {
     width: 100%;
     height: auto;
     position: relative;
-    bottom: 50px;
+    top: 50px;
+
   
   }
 
@@ -1307,7 +1308,7 @@ i {
 
 .sluzby-privitanie {
     position: relative;
-    top: 150px;
+    top: 250px;
     text-align: center;
     width: 100%;
 }
@@ -1335,7 +1336,7 @@ i {
 
 .card-container {
   position: relative;
-  top: 150px;
+  top: 250px;
     width: 100%;
     display: flex;
     flex-direction: column;
