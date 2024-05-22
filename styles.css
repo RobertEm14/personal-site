@@ -1099,7 +1099,7 @@ i {
   }
 
   #Profil {
-    margin-top: 10%;
+    margin-top: 20%;
     width: 95%;
   }
 
@@ -1307,7 +1307,7 @@ i {
 
 .sluzby-privitanie {
     position: relative;
-    top: 10px;
+    top: 150px;
     text-align: center;
     width: 100%;
 }
@@ -1335,7 +1335,7 @@ i {
 
 .card-container {
   position: relative;
-  top: 50px;
+  top: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;
