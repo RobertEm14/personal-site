@@ -1111,6 +1111,7 @@ i {
     width: 100%;
     height: auto;
     position: relative;
+    bottom: 50px;
   
   }
 
@@ -1164,7 +1165,7 @@ i {
     height: fit-content;
 
     position: absolute;
-    top: 290px;
+    top: 250px;
     left: 0;
   }
 
@@ -1246,7 +1247,7 @@ i {
     width: 100%;
     padding: 25px;
     position: relative;
-    top: 230px;
+    top: 290px;
     margin-top: 3%;
     display: block;
   }
