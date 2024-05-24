@@ -879,7 +879,7 @@ i {
     );
     min-height: 100vh;
     width: 100%;
-    overflow-x: hidden;
+    
     
   }
 
@@ -1099,7 +1099,7 @@ i {
   }
 
   #Profil {
-    margin-top: 20%;
+    
     width: 95%;
   }
 
@@ -1111,7 +1111,7 @@ i {
     width: 100%;
     height: auto;
     position: relative;
-    top: 50px;
+    top: 10px;
 
   
   }
@@ -1166,29 +1166,40 @@ i {
     height: fit-content;
 
     position: absolute;
-    top: 200px;
+    top: 230px;
     left: 0;
   }
 
   .profil-tlacidla {
     width: 100%;
     position: relative;
-    top: 370px;
+    top: 330px;
+    left: 1%;
     display: flex;
-    column-gap: 10%;
-    justify-content: center;
+    column-gap: 8%;
+  
+    
   }
 
   .zivotopis-text {
+    background-color: #2fe90a;
     position: static;
     text-decoration: none;
     color: rgb(25, 6, 95);
     font-size: 17px;
     transition: all 2.5s;
+    
+    border-radius: 4px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    padding: 13px 0px;
+    width: 130px;
   }
 
   .zivotopis-text:hover {
-    font-size: 20px;
+    color: rgb(16, 4, 70);
+    background-color: #efeff0;
   }
 
   .viac {
@@ -1198,17 +1209,15 @@ i {
     border: none;
     color: #ffffff;
     text-align: center;
-    font-size: 10px;
-    padding: 6px;
+    font-size: 15px;
+    padding: 13px 0px;
     width: 130px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
   }
 
-  .viac:hover {
-    font-size: 11px;
-  }
+ 
 
   .viac span {
     cursor: pointer;
@@ -1221,7 +1230,7 @@ i {
     content: "»";
     position: absolute;
     opacity: 0;
-    top: 11px;
+    top: 0px;
     right: -15px;
     transition: 0.5s;
   }
@@ -1248,7 +1257,7 @@ i {
     width: 100%;
     padding: 25px;
     position: relative;
-    top: 290px;
+    top: 320px;
     margin-top: 3%;
     display: block;
   }
@@ -1298,8 +1307,8 @@ i {
   }
 
   #Služby {
-    padding-top: 80px;  /* Zmenšiť padding */
-    margin-top: 150px;    /* Zmenšiť margin */
+    
+    margin-top: 445px;    /* Zmenšiť margin */
     display: flex;
     width: 95%;
     justify-content: center;
@@ -1308,7 +1317,8 @@ i {
 
 .sluzby-privitanie {
     position: relative;
-    top: 250px;
+    bottom: 170px;
+    
     text-align: center;
     width: 100%;
 }
@@ -1336,7 +1346,8 @@ i {
 
 .card-container {
   position: relative;
-  top: 250px;
+  bottom: 120px;
+  
     width: 100%;
     display: flex;
     flex-direction: column;
