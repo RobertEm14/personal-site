@@ -1353,7 +1353,6 @@ i {
     flex-direction: column;
     row-gap: 20px;
 }
-
 .flip-card {
   background-color: transparent;
   width: 300px;
@@ -1387,11 +1386,21 @@ i {
   border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
+  flex-direction: column;
 }
 
 .flip-card-front {
   background: linear-gradient(135deg, #3b6978 0%, #204051 100%);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .flip-card-back {
@@ -1401,5 +1410,18 @@ i {
   font-size: 14px;
   text-align: left;
 }
+
+.flip-card-back .title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
 
 }
