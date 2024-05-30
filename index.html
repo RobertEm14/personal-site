@@ -8,140 +8,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e0cff002b6.js" crossorigin="anonymous"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <title>Document</title>
 </head>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Animácia ikon navigácie
-    const icons = document.querySelectorAll('.nav-ul li');
-    const initialDelay = 1000;
-    icons.forEach((icon, index) => {
-        setTimeout(() => {
-            icon.style.animation = `slideAndBounce 1s forwards`;
-        }, initialDelay + 100 * index);
-    });
-
-    // Navigačné menu
-    const hamburger = document.querySelector('.hamburger');
-    const navBg = document.getElementById('nav-bg');
-    const navLinks = document.querySelectorAll('.nav-ul li a');
-    const htmlBody = document.querySelector('html');
-
-    hamburger.addEventListener('click', function(event) {
-        event.stopPropagation();
-        toggleMenu();
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 600) {
-                closeMenu();
-            }
-        });
-    });
-
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 1024) {
-            if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
-                closeMenu();
-            }
-        }
-    });
-
-    function toggleMenu() {
-        if (navBg.style.left === "0px") {
-            closeMenu();
-        } else {
-            navBg.style.left = "0px";
-            htmlBody.style.overflow = "hidden";
-        }
-    }
-
-    function closeMenu() {
-        navBg.style.left = "-150%";
-        htmlBody.style.overflow = "auto";
-    }
-
-    // Plynulé scrollovanie
-    const smoothLinks = document.querySelectorAll('a[href^="#"]');
-    smoothLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const id = link.getAttribute('href');
-            const target = document.querySelector(id);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-});
-
-// Sledovanie veľkosti okna pre adaptívnosť menu
-window.addEventListener('resize', function() {
-    const htmlBody = document.querySelector('html');
-    if (window.innerWidth > 600) {
-        htmlBody.style.overflow = "auto";
-    }
-
-    if (window.innerWidth <= 600) {
-        document.addEventListener('click', handleOutsideClicks);
-    } else {
-        document.removeEventListener('click', handleOutsideClicks);
-    }
-});
-
-// Animácia pri scrollovaní
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    const profilBg = document.querySelector('.profil-background');
-    const mottoText = document.querySelector('.motto-text');
-
-    if (scrollPosition > 10) {
-        profilBg.style.right = "0";
-        profilBg.style.opacity = "1";
-
-        mottoText.style.opacity = "1";
-        mottoText.style.transform = "translateX(0)";
-    } else {
-        profilBg.style.right = "-100%";
-        profilBg.style.opacity = "0";
-
-        mottoText.style.opacity = "0";
-        mottoText.style.transform = "translateX(50%)";
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Navigačné menu
-    const navLinks = document.querySelectorAll('.nav-ul li a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Zabrániť štandardnému správaniu
-            const id = link.getAttribute('href');
-            const target = document.querySelector(id);
-            if (target) {
-                // Scrollovanie s posunutím pre malé obrazovky
-                const offset = window.innerWidth <= 600 ? 50 : 0; // Prispôsob posunutie
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
-    });
-});
-
-
-
-
-</script>
 <body>
+    <div id="language-selection" class="language-overlay">
+        <div class="language-popup">
+            <h2>Vyberte jazyk</h2>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('sk')">Slovenčina</button>
+        </div>
+    </div>
+
     <nav id="nav-bg">
         <div class="hamburger">&#9776;</div>  <!-- Hamburger Icon -->
         <ul class="nav-ul">
@@ -205,8 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 
             </div>
-        
-        
         </div>
         
 
@@ -245,11 +123,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <img src="./images/html.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0" data-aos-delay="2000" data-aos-duration="500">
                 
             </div>
-            </div>
+        </div>
         
         <div class="text-blocks-hidden" >
             <div class="block1">
-                <h3 data-aos="fade-down" data-aos-duration="1000">Moje začiatky</h3>
+                <h3 data-aos="fade-down" data-aos-duration="1000">Moje začiatky</h3
                 <p class="text-block" data-aos="fade-up"
                 data-aos-duration="1000" data-aos-delay="0" data-aos-offset="100">
                     Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný základ pre moju kreativitu a zručnosti v práci s materiálmi.
@@ -268,9 +146,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 data-aos-duration="1000" data-aos-delay="" data-aos-offset="100">
                     Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML, pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne pohltila a prináša mi veľkú radosť a uspokojenie.
                 </p>
-            
             </div>
-            
+        </div>
     </section>
 
     <section id="Služby">
@@ -281,18 +158,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <div class="card-container">
             <div class="flip-card" data-aos="zoom-in" data-aos-delay="700" data-aos-duration="1000">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <h2>Development</h2>
-    </div>
-    <div class="flip-card-back">
-      <p class="title">Šitie na mieru</p>
-      <p>Vytvárame štýlové a moderné webové stránky, ktoré presne zodpovedajú vašim požiadavkám a značke.</p>
-      <p class="title">Responzívny dizajn</p>
-      <p>Zabezpečíme, aby vaša stránka vyzerala skvele a fungovala bezchybne na všetkých zariadeniach a platformách.</p>
-    </div>
-  </div>
-</div>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Development</h2>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Šitie na mieru</p>
+                        <p>Vytvárame štýlové a moderné webové stránky, ktoré presne zodpovedajú vašim požiadavkám a značke.</p>
+                        <p class="title">Responzívny dizajn</p>
+                        <p>Zabezpečíme, aby vaša stránka vyzerala skvele a fungovala bezchybne na všetkých zariadeniach a platformách.</p>
+                    </div>
+                </div>
+            </div>
             <div class="flip-card" data-aos="zoom-in" data-aos-delay="700" data-aos-duration="1000">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -342,18 +219,189 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
         </div>
-
-
-
-
-
     </section>
-    
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>   
+    <script>
+        AOS.init();
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>   
-<script>
-    AOS.init();
-  </script> 
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'sk',
+                includedLanguages: 'de,en,sk',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'content');
+        }
+
+        function setLanguage(lang) {
+            var languageCodes = {
+                'de': 'de',
+                'en': 'en',
+                'sk': 'sk'
+            };
+
+            var translateElement = document.querySelector('.goog-te-combo');
+            if (translateElement) {
+                translateElement.value = languageCodes[lang];
+                translateElement.dispatchEvent(new Event('change'));
+            }
+
+            document.getElementById('language-selection').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        // Skontrolujte, či je jazyk už nastavený v cookie
+        function getCookie(name) {
+            let dc = document.cookie;
+            let prefix = name + "=";
+            let begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            } else {
+                begin += 2;
+                let end = document.cookie.indexOf(";", begin);
+                if (end == -1) {
+                    end = dc.length;
+                }
+            }
+            return decodeURI(dc.substring(begin + prefix.length, end));
+        }
+
+        // Inicializácia prekladu pri načítaní stránky
+        window.onload = function() {
+            let lang = getCookie("language");
+            if (lang) {
+                setLanguage(lang);
+            } else {
+                document.getElementById('language-selection').style.display = 'block';
+            }
+
+            // Pridajte Google Translate element
+            googleTranslateElementInit();
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Animácia ikon navigácie
+            const icons = document.querySelectorAll('.nav-ul li');
+            const initialDelay = 1000;
+            icons.forEach((icon, index) => {
+                setTimeout(() => {
+                    icon.style.animation = `slideAndBounce 1s forwards`;
+                }, initialDelay + 100 * index);
+            });
+
+            // Navigačné menu
+            const hamburger = document.querySelector('.hamburger');
+            const navBg = document.getElementById('nav-bg');
+            const navLinks = document.querySelectorAll('.nav-ul li a');
+            const htmlBody = document.querySelector('html');
+
+            hamburger.addEventListener('click', function(event) {
+                event.stopPropagation();
+                toggleMenu();
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 600) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 1024) {
+                    if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
+                        closeMenu();
+                    }
+                }
+            });
+
+            function toggleMenu() {
+                if (navBg.style.left === "0px") {
+                    closeMenu();
+                } else {
+                    navBg.style.left = "0px";
+                    htmlBody.style.overflow = "hidden";
+                }
+            }
+
+            function closeMenu() {
+                navBg.style.left = "-150%";
+                htmlBody.style.overflow = "auto";
+            }
+
+            // Plynulé scrollovanie
+            const smoothLinks = document.querySelectorAll('a[href^="#"]');
+            smoothLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const id = link.getAttribute('href');
+                    const target = document.querySelector(id);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Sledovanie veľkosti okna pre adaptívnosť menu
+        window.addEventListener('resize', function() {
+            const htmlBody = document.querySelector('html');
+            if (window.innerWidth > 600) {
+                htmlBody.style.overflow = "auto";
+            }
+
+            if (window.innerWidth <= 600) {
+                document.addEventListener('click', handleOutsideClicks);
+            } else {
+                document.removeEventListener('click', handleOutsideClicks);
+            }
+        });
+
+        // Animácia pri scrollovaní
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            const profilBg = document.querySelector('.profil-background');
+            const mottoText = document.querySelector('.motto-text');
+
+            if (scrollPosition > 10) {
+                profilBg.style.right = "0";
+                profilBg.style.opacity = "1";
+
+                mottoText.style.opacity = "1";
+                mottoText.style.transform = "translateX(0)";
+            } else {
+                profilBg.style.right = "-100%";
+                profilBg.style.opacity = "0";
+
+                mottoText.style.opacity = "0";
+                mottoText.style.transform = "translateX(50%)";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Navigačné menu
+            const navLinks = document.querySelectorAll('.nav-ul li a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Zabrániť štandardnému správaniu
+                    const id = link.getAttribute('href');
+                    const target = document.querySelector(id);
+                    if (target) {
+                        // Scrollovanie s posunutím pre malé obrazovky
+                        const offset = window.innerWidth <= 600 ? 50 : 0; // Prispôsob posunutie
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
-</html>
+</html>                                                            
