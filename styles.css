@@ -748,6 +748,7 @@ i {
 .sluzby-privitanie {
   width: 100%;
   position: relative;
+  bottom: 100px;
   
   
   display: flex;
@@ -773,6 +774,7 @@ i {
   display: flex;
   column-gap: 20px;
   position: relative;
+  bottom: 50px;
   
   
 }
@@ -827,13 +829,7 @@ i {
 }
 
 .flip-card-front {
-  background: linear-gradient(
-    120deg,
-    bisque 60%,
-    rgb(255, 231, 222) 88%,
-    rgb(255, 211, 195) 40%,
-    rgba(255, 127, 80, 0.603) 48%
-  );
+  background: linear-gradient(135deg, #3b6978 0%, #204051 100%);
   color: coral;
 }
 
