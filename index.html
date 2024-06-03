@@ -1,149 +1,155 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&family=Square+Peg&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Square+Peg&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Square+Peg&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/e0cff002b6.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Animácia ikon navigácie
-    const icons = document.querySelectorAll('.nav-ul li');
-    const initialDelay = 1000;
-    icons.forEach((icon, index) => {
-        setTimeout(() => {
-            icon.style.animation = `slideAndBounce 1s forwards`;
-        }, initialDelay + 100 * index);
-    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Animácia ikon navigácie
+        const icons = document.querySelectorAll('.nav-ul li');
+        const initialDelay = 1000;
+        icons.forEach((icon, index) => {
+            setTimeout(() => {
+                icon.style.animation = `slideAndBounce 1s forwards`;
+            }, initialDelay + 100 * index);
+        });
 
-    // Navigačné menu
-    const hamburger = document.querySelector('.hamburger');
-    const navBg = document.getElementById('nav-bg');
-    const navLinks = document.querySelectorAll('.nav-ul li a');
-    const htmlBody = document.querySelector('html');
+        // Navigačné menu
+        const hamburger = document.querySelector('.hamburger');
+        const navBg = document.getElementById('nav-bg');
+        const navLinks = document.querySelectorAll('.nav-ul li a');
+        const htmlBody = document.querySelector('html');
 
-    hamburger.addEventListener('click', function(event) {
-        event.stopPropagation();
-        toggleMenu();
-    });
+        hamburger.addEventListener('click', function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 600) {
-                closeMenu();
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 600) {
+                    closeMenu();
+                }
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            if (window.innerWidth <= 1024) {
+                if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
+                    closeMenu();
+                }
             }
+        });
+
+        function toggleMenu() {
+            if (navBg.style.left === "0px") {
+                closeMenu();
+            } else {
+                navBg.style.left = "0px";
+                htmlBody.style.overflow = "hidden";
+            }
+        }
+
+        function closeMenu() {
+            navBg.style.left = "-150%";
+            htmlBody.style.overflow = "auto";
+        }
+
+        // Plynulé scrollovanie
+        const smoothLinks = document.querySelectorAll('a[href^="#"]');
+        smoothLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const id = link.getAttribute('href');
+                const target = document.querySelector(id);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     });
 
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 1024) {
-            if (!navBg.contains(event.target) && !hamburger.contains(event.target)) {
-                closeMenu();
-            }
+    // Sledovanie veľkosti okna pre adaptívnosť menu
+    window.addEventListener('resize', function () {
+        const htmlBody = document.querySelector('html');
+        if (window.innerWidth > 600) {
+            htmlBody.style.overflow = "auto";
         }
-    });
 
-    function toggleMenu() {
-        if (navBg.style.left === "0px") {
-            closeMenu();
+        if (window.innerWidth <= 600) {
+            document.addEventListener('click', handleOutsideClicks);
         } else {
-            navBg.style.left = "0px";
-            htmlBody.style.overflow = "hidden";
+            document.removeEventListener('click', handleOutsideClicks);
         }
-    }
+    });
 
-    function closeMenu() {
-        navBg.style.left = "-150%";
-        htmlBody.style.overflow = "auto";
-    }
+    // Animácia pri scrollovaní
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        const profilBg = document.querySelector('.profil-background');
+        const mottoText = document.querySelector('.motto-text');
 
-    // Plynulé scrollovanie
-    const smoothLinks = document.querySelectorAll('a[href^="#"]');
-    smoothLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const id = link.getAttribute('href');
-            const target = document.querySelector(id);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+        if (scrollPosition > 10) {
+            profilBg.style.right = "0";
+            profilBg.style.opacity = "1";
+
+            mottoText.style.opacity = "1";
+            mottoText.style.transform = "translateX(0)";
+        } else {
+            profilBg.style.right = "-100%";
+            profilBg.style.opacity = "0";
+
+            mottoText.style.opacity = "0";
+            mottoText.style.transform = "translateX(50%)";
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Navigačné menu
+        const navLinks = document.querySelectorAll('.nav-ul li a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Zabrániť štandardnému správaniu
+                const id = link.getAttribute('href');
+                const target = document.querySelector(id);
+                if (target) {
+                    // Scrollovanie s posunutím pre malé obrazovky
+                    const offset = window.innerWidth <= 600 ? 50 : 0; // Prispôsob posunutie
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
         });
     });
-});
-
-// Sledovanie veľkosti okna pre adaptívnosť menu
-window.addEventListener('resize', function() {
-    const htmlBody = document.querySelector('html');
-    if (window.innerWidth > 600) {
-        htmlBody.style.overflow = "auto";
-    }
-
-    if (window.innerWidth <= 600) {
-        document.addEventListener('click', handleOutsideClicks);
-    } else {
-        document.removeEventListener('click', handleOutsideClicks);
-    }
-});
-
-// Animácia pri scrollovaní
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    const profilBg = document.querySelector('.profil-background');
-    const mottoText = document.querySelector('.motto-text');
-
-    if (scrollPosition > 10) {
-        profilBg.style.right = "0";
-        profilBg.style.opacity = "1";
-
-        mottoText.style.opacity = "1";
-        mottoText.style.transform = "translateX(0)";
-    } else {
-        profilBg.style.right = "-100%";
-        profilBg.style.opacity = "0";
-
-        mottoText.style.opacity = "0";
-        mottoText.style.transform = "translateX(50%)";
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Navigačné menu
-    const navLinks = document.querySelectorAll('.nav-ul li a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Zabrániť štandardnému správaniu
-            const id = link.getAttribute('href');
-            const target = document.querySelector(id);
-            if (target) {
-                // Scrollovanie s posunutím pre malé obrazovky
-                const offset = window.innerWidth <= 600 ? 50 : 0; // Prispôsob posunutie
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
-    });
-});
 
 
 
 
 </script>
+
 <body>
     <nav id="nav-bg">
-        <div class="hamburger">&#9776;</div>  <!-- Hamburger Icon -->
+        <div class="hamburger">&#9776;</div> <!-- Hamburger Icon -->
         <ul class="nav-ul">
             <li><a href="#Domov"><i class="fa-solid fa-house"></i><span class="tooltip">Domov</span></a></li>
             <li><a href="#Profil"><i class="fa-solid fa-user-tie"></i><span class="tooltip">Profil</span></a></li>
@@ -152,25 +158,28 @@ document.addEventListener("DOMContentLoaded", function() {
             <li><a href="#Kontakt"><i class="fa-solid fa-envelope"></i><span class="tooltip">Kontakt</span></a></li>
         </ul>
     </nav>
-    
+
     <section id="Domov">
         <div id="title-container">
             <div id="left-flex">
                 <div id="inicials">
                     <h1 class="title-hi">Volám sa</h1>
                     <h2 class="title-name">Róbert Magdoško</h2>
-                    <div class="proffesions" data-aos="fade-right" data-aos-delay="900" data-aos-offset="2" data-aos-duration="1000">
+                    <div class="proffesions" data-aos="fade-right" data-aos-delay="900" data-aos-offset="2"
+                        data-aos-duration="1000">
                         <h2 class="title-prof">web designer</h2>
                         <h2 class="title-prof-second">grafik</h2>
                     </div>
                     <div class="buttons">
                         <a href="#Profil">
-                            <button class="btn-left" data-aos="zoom-in-up" data-aos-delay="1500" data-aos-duration="1000">
+                            <button class="btn-left" data-aos="zoom-in-up" data-aos-delay="1500"
+                                data-aos-duration="1000">
                                 <span>Ďalej</span>
                             </button>
                         </a>
                         <a href="#Kontakt">
-                            <button class="btn-right" data-aos="zoom-in-up" data-aos-delay="1800" data-aos-duration="1000">
+                            <button class="btn-right" data-aos="zoom-in-up" data-aos-delay="1800"
+                                data-aos-duration="1000">
                                 <span>Kontaktujte ma</span>
                             </button>
                         </a>
@@ -179,57 +188,65 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div id="right-flex">
                 <div class="logo-container">
-                    <img class="logo" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000" src="./images/logo.svg" alt="">
+                    <img class="logo" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000"
+                        src="./images/logo.svg" alt="">
                 </div>
             </div>
         </div>
     </section>
-    
+
     <div class="profil-background"></div>
-    <section id="Profil" >
-        
+    <section id="Profil">
+
         <div class="motto-flex">
             <div class="profil-img" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="1000">
                 <img src="./images/portret2 (2).png" alt="">
             </div>
-            <div id="motto-container" >
-                <h2 class="motto" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="1200">"web ktorý hovorí za vás"</h2>
+            <div id="motto-container">
+                <h2 class="motto" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="1200">"web ktorý hovorí
+                    za vás"</h2>
                 <p class="motto-text">
-                    Zdravím. Volám sa Róbert , váš partner pre web development a grafický dizajn. Moje nadšenie pre technológie a kreatívny dizajn mi pomáha vytvárať vizuálne príťažlivé a technicky rafinované webové riešenia. Zameriavam sa na pochopenie vašich potrieb a transformujem vaše idey do skutočnosti.
+                    Zdravím. Volám sa Róbert , váš partner pre web development a grafický dizajn. Moje nadšenie pre
+                    technológie a kreatívny dizajn mi pomáha vytvárať vizuálne príťažlivé a technicky rafinované webové
+                    riešenia. Zameriavam sa na pochopenie vašich potrieb a transformujem vaše idey do skutočnosti.
                 </p>
                 <div class="profil-tlacidla">
-                <a class="zivotopis-text" data-aos="fade-right" data-aos-delay="1800" href="#Služby">Životopis</a>
-                <a href="#Služby"><button class="viac" data-aos="fade-right" data-aos-delay="1500" >
-                    <span>Pokračuj</span>
-                  </button></a>
+                    <a class="zivotopis-text" data-aos="fade-right" data-aos-delay="1800" href="#Služby">Životopis</a>
+                    <a href="#Služby"><button class="viac" data-aos="fade-right" data-aos-delay="1500">
+                            <span>Pokračuj</span>
+                        </button></a>
                 </div>
-                
+
             </div>
-        
-        
+
+
         </div>
-        
+
 
         <div id="text-blocks-bg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2500">
             <div class="text-blocks">
-                <div class="block1"  data-aos-duration="1000" data-aos-delay="">
+                <div class="block1" data-aos-duration="1000" data-aos-delay="">
                     <h3>Moje začiatky</h3>
                     <p class="text-block">
-                        Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný základ pre moju kreativitu a zručnosti v práci s materiálmi.
+                        Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej
+                        umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný
+                        základ pre moju kreativitu a zručnosti v práci s materiálmi.
                     </p>
                 </div>
-                <div class="block2" data-aos="fade-up"
-                data-aos-duration="1000" data-aos-delay="2800">
+                <div class="block2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2800">
                     <h3>Profesionálna cesta</h3>
                     <p class="text-block">
-                        Po škole som pracoval v rôznych priemyselných odvetviach. Hoci to bola cenná skúsenosť, postupne som pocítil potrebu zmeny. Chcel som viac času na osobný život a rodinu, čo ma nakoniec priviedlo k rozhodnutiu zmeniť svoju kariérnu dráhu.
+                        Po škole som pracoval v rôznych priemyselných odvetviach. Hoci to bola cenná skúsenosť, postupne
+                        som pocítil potrebu zmeny. Chcel som viac času na osobný život a rodinu, čo ma nakoniec
+                        priviedlo k rozhodnutiu zmeniť svoju kariérnu dráhu.
                     </p>
                 </div>
-                <div class="block3" data-aos="fade-up"
-                data-aos-duration="1000" data-aos-delay="3000">
+                <div class="block3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="3000">
                     <h3>Nová vášen</h3>
                     <p class="text-block">
-                        Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML, pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne pohltila a prináša mi veľkú radosť a uspokojenie.
+                        Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML,
+                        pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne
+                        pohltila a prináša mi veľkú radosť a uspokojenie.
                     </p>
                 </div>
             </div>
@@ -237,107 +254,129 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <div class="nastroje-container">
             <div class="nastroje">
-                
-                <img src="./images/ai.png" height="55px" alt="" data-aos="zoom-in" data-aos-offset="0" data-aos-delay="1600" data-aos-duration="500">
-                <img src="./images/ps.png" height="55px" alt="" data-aos="zoom-in" data-aos-offset="0" data-aos-delay="1700" data-aos-duration="500">
-                <img src="./images/js.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0" data-aos-delay="1800" data-aos-duration="500">
-                <img src="./images/css.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0" data-aos-delay="1900" data-aos-duration="500">
-                <img src="./images/html.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0" data-aos-delay="2000" data-aos-duration="500">
-                
+
+                <img src="./images/ai.png" height="55px" alt="" data-aos="zoom-in" data-aos-offset="0"
+                    data-aos-delay="1600" data-aos-duration="500">
+                <img src="./images/ps.png" height="55px" alt="" data-aos="zoom-in" data-aos-offset="0"
+                    data-aos-delay="1700" data-aos-duration="500">
+                <img src="./images/js.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0"
+                    data-aos-delay="1800" data-aos-duration="500">
+                <img src="./images/css.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0"
+                    data-aos-delay="1900" data-aos-duration="500">
+                <img src="./images/html.png" height="50px" alt="" data-aos="zoom-in" data-aos-offset="0"
+                    data-aos-delay="2000" data-aos-duration="500">
+
             </div>
-            </div>
-        
-        <div class="text-blocks-hidden" >
+        </div>
+
+        <div class="text-blocks-hidden">
             <div class="block1">
                 <h3 data-aos="fade-down" data-aos-duration="1000">Moje začiatky</h3>
-                <p class="text-block" data-aos="fade-up"
-                data-aos-duration="1000" data-aos-delay="0" data-aos-offset="100">
-                    Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný základ pre moju kreativitu a zručnosti v práci s materiálmi.
+                <p class="text-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0"
+                    data-aos-offset="100">
+                    Ako som už písal už vyššie, volám sa Róbert. Mám 32 rokov a vzdelanie som získal na strednej
+                    umeleckej škole, kde som sa venoval dizajnu a tvarovaniu dreva. Toto obdobie mi poskytlo silný
+                    základ pre moju kreativitu a zručnosti v práci s materiálmi.
                 </p>
             </div>
             <div class="block2">
                 <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">Profesionálna cesta</h3>
-                <p class="text-block" class="text-block" data-aos="fade-up"
-                data-aos-duration="1000" data-aos-delay="" data-aos-offset="100">
-                    Po škole som pracoval v rôznych priemyselných odvetviach. Hoci to bola cenná skúsenosť, postupne som pocítil potrebu zmeny. Chcel som viac času na osobný život a rodinu, čo ma nakoniec priviedlo k rozhodnutiu zmeniť svoju kariérnu dráhu.
+                <p class="text-block" class="text-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay=""
+                    data-aos-offset="100">
+                    Po škole som pracoval v rôznych priemyselných odvetviach. Hoci to bola cenná skúsenosť, postupne som
+                    pocítil potrebu zmeny. Chcel som viac času na osobný život a rodinu, čo ma nakoniec priviedlo k
+                    rozhodnutiu zmeniť svoju kariérnu dráhu.
                 </p>
             </div>
             <div class="block3">
                 <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="">Nová vášen</h3>
-                <p class="text-block" class="text-block" data-aos="fade-up"
-                data-aos-duration="1000" data-aos-delay="" data-aos-offset="100">
-                    Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML, pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne pohltila a prináša mi veľkú radosť a uspokojenie.
+                <p class="text-block" class="text-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay=""
+                    data-aos-offset="100">
+                    Moje nadšenie pre technológie ma viedlo k programovaniu webových stránok. Začal som kurzom HTML,
+                    pokračoval som v CSS a teraz sa intenzívne venujem JavaScriptu. Táto nová zručnosť ma úplne pohltila
+                    a prináša mi veľkú radosť a uspokojenie.
                 </p>
-            
+
             </div>
-            
+
     </section>
 
     <section id="Služby">
         <div class="sluzby-privitanie">
-            <h2>Kvalitné služby na počkanie</h2>
-            <p>Vitajte v sekcií služieb! Ako skúsený web developer poskytujem responzívne a intuitívne webové riešenia, ktoré pomáhajú vášmu podnikaniu prosperovať online. Stačí si vybrat niektorú z možností.</p>
+            <h2 data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">Kvalitné služby na počkanie</h2>
+            <p data-aos="fade-right" data-aos-delay="800" data-aos-duration="1300">Vitajte v sekcií služieb! Ako skúsený
+                web developer poskytujem responzívne a intuitívne webové riešenia, ktoré pomáhajú vášmu podnikaniu
+                prosperovať online. Stačí si vybrat niektorú z možností.</p>
         </div>
 
         <div class="card-container">
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="700" data-aos-duration="1000">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <h2>Development</h2>
-    </div>
-    <div class="flip-card-back">
-      <p class="title">Šitie na mieru</p>
-      <p>Vytvárame štýlové a moderné webové stránky, ktoré presne zodpovedajú vašim požiadavkám a značke.</p>
-      <p class="title">Responzívny dizajn</p>
-      <p>Zabezpečíme, aby vaša stránka vyzerala skvele a fungovala bezchybne na všetkých zariadeniach a platformách.</p>
-    </div>
-  </div>
-</div>
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="700" data-aos-duration="1000">
+            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="1000">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <p class="title">FLIP CARD</p>
-                        <p>Hover Me</p>
+                        <h2>Development</h2>
                     </div>
                     <div class="flip-card-back">
-                        <p class="title">BACK</p>
-                        <p>Leave Me</p>
+                        <p class="title">Šitie na mieru:</p>
+                        <p>Vytvárame štýlové a moderné webové stránky, ktoré presne zodpovedajú vašim požiadavkám a
+                            značke.</p>
+                        <p class="title">Responzívny dizajn:</p>
+                        <p>Zabezpečíme, aby vaša stránka vyzerala skvele a fungovala bezchybne na všetkých zariadeniach
+                            a platformách.</p>
+                            <button>Viac</button>
                     </div>
                 </div>
             </div>
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="900" data-aos-duration="1000">
+            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1200" data-aos-duration="1000">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <p class="title">FLIP CARD</p>
-                        <p>Hover Me</p>
+                        <h2>E-commerce</h2>
                     </div>
                     <div class="flip-card-back">
-                        <p class="title">BACK</p>
-                        <p>Leave Me</p>
+                        <p class="title">E-shop:</p>
+                        <p>Od návrhu po implementáciu, poskytujem kompletné riesenia pre e-commerce,vrátane integrácie platobných systémov.</p>
+                        <button>Viac</button>
                     </div>
                 </div>
             </div>
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1100" data-aos-duration="1000">
+            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1400" data-aos-duration="1000">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <p class="title">FLIP CARD</p>
-                        <p>Hover Me</p>
+                        <h2>Online Marketing</h2>
                     </div>
                     <div class="flip-card-back">
-                        <p class="title">BACK</p>
-                        <p>Leave Me</p>
+                        <p class="title">Optimalizácia pre vyhľadávače (SEO):</p>
+                        <p>Zlepšite svoju viditeľnosť a prilákajte viac návštevníkov s mojimi službami.</p>
+                        <p class="title">Správa sociálnych médií:</p>
+                        <p>Budujte svoju značku prostredníctvom komunikácie na sociálnych sieťach.</p>
+                        <button>Viac</button>
                     </div>
                 </div>
             </div>
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1300" data-aos-duration="1000">
+            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1600" data-aos-duration="1000">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <p class="title">FLIP CARD</p>
-                        <p>Hover Me</p>
+                        <h2>Podpora a Údržba</h2>
                     </div>
                     <div class="flip-card-back">
-                        <p class="title">BACK</p>
-                        <p>Leave Me</p>
+                        <p class="title">Technická podpora:</p>
+                        <p>Ponúkam spoľahlivú podporu a údržbu pre vaše webové stránky, aby sme zabezpečili ich plynulý chod.</p>
+                        <p class="title">Aktualizácie a zálohy:</p>
+                        <p>Aktualizujem a zálohujem vaše stránky, aby boli vždy aktuálne a bezpečné.</p>
+                        <button>Viac</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" data-aos="zoom-in" data-aos-delay="1800" data-aos-duration="1000">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Grafické Služby</h2>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Grafika a Branding</p>
+                        <p>Tvorba grafických materiálov, bannerov a loga ktoré posilní vašu značku a odlíši vás od konkurencie.</p>
+                        <p class="title">UI/UX Design</p>
+                        <p>Návrh užívatelských rozhraní pre webové a mobilné aplikácie, zameraný na optimálnu užívateľskú skúsenosť a interakciu.</p>
+                        <button>Viac</button>
                     </div>
                 </div>
             </div>
@@ -348,12 +387,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     </section>
-    
 
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>   
-<script>
-    AOS.init();
-  </script> 
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
+
 </html>
