@@ -1350,9 +1350,10 @@ i {
     row-gap: 20px;
 }
 .flip-card {
+  
   background-color: transparent;
   width: 300px;
-  height: 200px;
+  height: 400px;
   perspective: 1000px;
   margin: 20px;
 }
@@ -1404,8 +1405,9 @@ i {
   color: white;
   transform: rotateY(180deg);
   font-size: 14px;
-  text-align: left;
+  text-align: center;
 }
+
 
 .flip-card-back .title {
   font-size: 18px;
@@ -1417,6 +1419,10 @@ i {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 5px 0;
   border-radius: 5px;
+}
+
+.flip-card-back p {
+  margin: 20px;
 }
 
 
